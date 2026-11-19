@@ -33,7 +33,10 @@ b1011 "
 '''
         with tempfile.TemporaryDirectory() as folder:
             path=Path(folder)/'input.vcd';path.write_text(fixture);wave=module.read_vcd(path)
+            excerpt=module.read_vcd(path,6)
         self.assertEqual(wave['duration'],10)
+        self.assertEqual(excerpt['duration'],6)
+        self.assertEqual(excerpt['signals']['clk'],[[0,'0'],[5,'1']])
         self.assertEqual(wave['widths']['q'],4)
         self.assertEqual(wave['signals']['q'],[[0,'xxxx'],[5,'11']])
         self.assertEqual(wave['signals']['count'],wave['signals']['q'])

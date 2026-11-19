@@ -1,6 +1,6 @@
 # 电路之间 · FPGA 互动入门
 
-面向没有 FPGA、数字电路和 Verilog 经验的读者，完整提供十课。每课都有互动电路、内嵌 SVG 图解、波形、逐行代码说明、Vivado 实验、修改练习和三道带解析的挑战。基础学习不需要开发板。
+面向没有 FPGA、数字电路和 Verilog 经验的读者，提供基础十课和实践十课。每课都有互动电路、内嵌 SVG 图解、波形、逐行代码说明、Vivado 实验、修改练习和三道带解析的挑战。基础学习不需要开发板。
 
 | 课程 | 直观看到什么 | 实验目录 / 设计顶层 |
 | --- | --- | --- |
@@ -14,6 +14,17 @@
 | 08 有限状态机 | 状态保存、条件转移、输出译码 | `08_fsm` / `fsm_demo` |
 | 09 PWM 与呼吸灯 | 0%～100% 占空比、逐帧升降 | `09_pwm` / `pwm_demo` |
 | 10 从仿真到开发板 | 参数分频、频率换算、约束与工具流程 | `10_board` / `board_demo` |
+
+| 11 变量与条件 | 寄存器保存、优先级、加减回绕 | `11_variables` / `variables_demo` |
+| 12 八位 ALU | 八种运算、进位与借位、完整组合赋值 | `12_alu` / `alu_demo` |
+| 13 循环与多拍计算 | 组合展开和八拍迭代统计 1 的个数 | `13_popcount` / `popcount_demo` |
+| 14 模块与接口 | 定时器与计数器同拍读取旧值 | `14_modules` / `modules_demo` |
+| 15 同步与消抖 | 两级同步、连续样本确认、单拍事件 | `15_debounce` / `debounce_demo` |
+| 16 移位寄存器 | 串并转换、装入优先、沿前移出位 | `16_shift` / `shift_demo` |
+| 17 小型 RAM | 未写未知值、同步读取、读旧值策略 | `17_memory` / `memory_demo` |
+| 18 FIFO | 有限容量、请求接受条件、满空同时读写 | `18_fifo` / `fifo_demo` |
+| 19 UART 发送器 | 8N1、低位先发、每位时钟数、忙握手 | `19_uart` / `uart_demo` |
+| 20 串口回显项目 | 接收同步与采样 → FIFO → UART 发送 | `20_project` / `project_demo` |
 
 在线学习：[FPGA 互动教程](https://jamlabq.github.io/LearnEverything/fpga/)。仓库中从 `fpga/` 目录执行下列命令；下载实验包则从解压目录执行。
 
@@ -31,7 +42,7 @@ bash scripts/start.sh
 
 ## 使用本机 Vivado / XSim
 
-已实际使用本机 **Vivado / XSim 2022.2**，安装目录为 `/opt/Xilinx/Vivado/2022.2`。XSim 是 Vivado 自带的仿真器，包含 `xvlog`、`xelab`、`xsim`；十个实验都可在电脑上运行。
+已实际使用本机 **Vivado / XSim 2022.2**，安装目录为 `/opt/Xilinx/Vivado/2022.2`。XSim 是 Vivado 自带的仿真器，包含 `xvlog`、`xelab`、`xsim`；二十个实验都可在电脑上运行。
 
 运行全部实验，或用表中的目录名单独运行一课：
 
@@ -84,7 +95,7 @@ vivado -mode gui -source scripts/create_project.tcl -tclargs 05_register
 
 脚本优先选择已安装的 `xc7a35tcpg236-1`，否则选本地可用器件，并打印工程实际器件型号。它仅用于教学，不能据此认定开发板型号。确认完整型号且安装支持后，可以用 `PART=实际器件型号 vivado ...` 指定；打开已有工程时，显式 PART 也会更新工程器件。
 
-批量复核十课工程的行为仿真和 RTL 展开：
+批量复核二十课工程的行为仿真和 RTL 展开：
 
 ```bash
 source /opt/Xilinx/Vivado/2022.2/settings64.sh
@@ -93,11 +104,11 @@ vivado -mode batch -nojournal -nolog -source scripts/validate_projects.tcl
 
 ## 波形和时序的读法
 
-**手动操作记录**由网页的教学模型生成，保存最近 64 次输入或时钟操作，横轴是操作序号。多位总线用十进制标值。切课、切面板或复位后重开实验；修改第十课 H 相当于重新选择综合参数，也会清除该次记录。
+**手动操作记录**由网页的教学模型生成，保存基础篇最近 64 次、实践篇最近 512 次输入或时钟操作，横轴是操作序号。多位总线用十进制标值。切课、切面板或复位后重开实验；修改第十课 H 相当于重新选择综合参数，也会清除该次记录。
 
-**XSim 实测波形**来自实际运行 testbench 得到的 VCD，横轴为 ns，是固定记录，不随网页开关变化。多位信号保留位宽，X/Z 用不同颜色标识未知/高阻。较长的记录可切换推荐片段、开头/结尾 160 ns 或完整记录。第九课推荐片段展示静态 50% 占空比；要看呼吸包络，请选完整记录或在 XSim 缩放。
+**XSim 实测波形**来自实际运行 testbench 得到的 VCD，横轴为 ns，是固定记录，不随网页开关变化。多位信号保留位宽，X/Z 用不同颜色标识未知/高阻。较长的记录可切换推荐片段、开头/结尾片段（一般 160 ns，串口课 640 ns） 或完整记录。第九课推荐片段展示静态 50% 占空比；要看呼吸包络，请选完整记录或在 XSim 缩放。
 
-前四课为组合逻辑。测试台中每组输入保持 10 ns，这不是逻辑门的计算时间。第五课起测试时钟为 10 ns 周期，检查在上升沿后的非阻塞更新完成后进行。行为仿真不包含器件布线传播延迟，不能用来证明真实板卡的最高频率。
+第 1–4 课及第 12 课为组合逻辑。测试台中每组输入保持 10 ns，这不是逻辑门的计算时间。其余时序实验的测试时钟为 10 ns 周期，检查在上升沿后的非阻塞更新完成后进行。行为仿真不包含器件布线传播延迟，不能用来证明真实板卡的最高频率。
 
 第七课首组输入在第一个上升沿进入一级，在第二个上升沿到达输出：经过两个寄存器级，从首次采样边沿到输出边沿相隔一个周期。填满后每拍可输出一组，只有 `valid_out=1` 时数据才作为有效结果。
 
@@ -113,7 +124,7 @@ vivado -mode batch -nojournal -nolog -source scripts/validate_projects.tcl
 python3 scripts/export_waves.py
 ```
 
-导出器面向本教程：读取 `tb` 顶层标量和总线，排除测试计分变量，保留未知值；不是通用 VCD 查看器。`src/lab-data.js` 已携带通过验证的记录和源码，普通读者无需先安装 Vivado。下载包 `assets/fpga-labs.zip` 包含完整十课网页、HDL、测试和脚本；不包含生成的 Vivado 工程及 WDB，可用实验脚本重新生成。
+导出器面向本教程：读取 `tb` 顶层标量和总线，排除测试计分变量，保留未知值；不是通用 VCD 查看器。`src/lab-data.js` 已携带通过验证的记录和源码，普通读者无需先安装 Vivado。下载包 `assets/fpga-labs.zip` 包含完整二十课网页、HDL、测试和脚本；不包含生成的 Vivado 工程及 WDB，可用实验脚本重新生成。
 
 ```bash
 node --test tests/*.test.mjs
@@ -121,10 +132,23 @@ python3 tests/export_waves_test.py
 bash scripts/run_labs.sh all
 python3 scripts/export_waves.py
 python3 tests/browser_check.py
+python3 tests/practice_browser_check.py
 ```
 
-模型测试会逐事件对照实际 XSim VCD，检查每课输出以及状态机故障注入后的恢复。浏览器测试使用 Python Playwright 和本机 Chrome，覆盖十课关键操作、30 道挑战、学习进度、全部面板、下载链接，以及手机横竖屏布局。截图保存到 `build/screenshots/`；网页本身不依赖这些测试工具。
+模型测试会逐事件对照实际 XSim VCD，检查每课输出以及状态机故障注入后的恢复。浏览器测试使用 Python Playwright 和本机 Chrome，覆盖二十课关键操作、60 道挑战、学习进度、全部面板、下载链接，以及手机横竖屏布局。截图保存到 `build/screenshots/`；网页本身不依赖这些测试工具。
 
-内容入口：`src/content.js`（1～3课）、`src/content-advanced.js`（4～10课）。互动电路在 `src/simulators.js` 和 `src/advanced-simulators.js`；纯逻辑模型在两个 `logic` 文件中，样式在 `assets/style.css`。
+内容入口：`src/content.js`（1～3课）、`src/content-advanced.js`（4～10课）、`src/content-practice.js`（11～20课）。实践篇的纯模型、交互和内嵌图解分别位于 `practice-logic.mjs`、`practice-simulators.js`、`practice-diagrams.js`；样式在 `assets/style.css`。
 
 学习进度仅存于浏览器本地，无账号和上传。浏览器禁止存储时仍可学习，当前记录在内存中保留。
+
+## 实践篇的学习方法与毕业目标
+
+第 11–20 课每课增加三个可运行示例、模块接口表，以及三项递进源码练习。先预测结果，再运行预置场景，看上升沿前后状态和操作波形，最后到 Vivado 改设计并补充测试台。RST 复位和“重开实验”不同：第 17 课 RST 保留 RAM，重开实验回到未写的 X。
+
+建议用第 11–14 课建立从 CPU 思维到电路的映射，再用第 15–18 课练习事件、数据保存和有限缓冲，最后连续完成第 19–20 课。网页选择题答对不等于能独立设计；练习验收要求你给出输入、预期结果、自检和波形解释。
+
+完成后应能独立实现并验证“串口接收 → 四字节 FIFO → 原样回显”，理解每个模块的输入输出、时钟边沿和请求接受条件。毕业练习是在回显路径加入“仅将小写 ASCII 转为大写”的处理，保持其他字节和顺序，并自检混合输入、连续帧、坏停止位和复位恢复。第 20 课还给出队列边界与故障定位任务。
+
+串口教学默认每位 4 个主时钟，便于逐拍观察；实际波特率为 `f_clk/CLKS_PER_BIT`，需要结合真实时钟、误差和时序重新选择参数。有限 FIFO 无法无限吸收更快的输入，没有硬件流控。数字行为仿真不能证明模拟亚稳态、板卡电气条件或时序收敛。
+
+新增自检包括 ALU 全部 524,288 组组合、所有 256 个字节的 popcount、FIFO 随机软件队列对照、UART 逐符号时长、独立 TX 线解码及错误帧/复位恢复。ALU 网页只展示开头 320 ns 的代表波形，完整遍历仍在测试台中运行。实践纯模型另逐事件对照真实 XSim 波形。

@@ -11,11 +11,22 @@ if ! command -v xvlog >/dev/null; then
   source "$TASK_VIVADO_SETTINGS"
   set -u
 fi
-case "${1:-all}" in
-  all) TASK_LABS=(01_parallel 02_gates 03_mux 04_adder 05_register 06_counter 07_pipeline 08_fsm 09_pwm 10_board);;
-  01_parallel|02_gates|03_mux|04_adder|05_register|06_counter|07_pipeline|08_fsm|09_pwm|10_board) TASK_LABS=("$1");;
-  *) echo "用法: bash scripts/run_labs.sh [all|01_parallel|02_gates|03_mux|04_adder|05_register|06_counter|07_pipeline|08_fsm|09_pwm|10_board]" >&2; exit 2;;
-esac
+TASK_ALL_LABS=()
+for TASK_FOLDER in "$TASK_ROOT"/labs/[0-9][0-9]_*; do
+  [[ -d "$TASK_FOLDER" && -f "$TASK_FOLDER/design.v" && -f "$TASK_FOLDER/tb.sv" ]] && TASK_ALL_LABS+=("${TASK_FOLDER##*/}")
+done
+TASK_LABS=()
+if [[ "${1:-all}" == all ]]; then
+  TASK_LABS=("${TASK_ALL_LABS[@]}")
+else
+  for TASK_NAME in "${TASK_ALL_LABS[@]}"; do
+    [[ "$TASK_NAME" == "$1" ]] && TASK_LABS=("$1")
+  done
+  if [[ ${#TASK_LABS[@]} -eq 0 ]]; then
+    echo "用法: bash scripts/run_labs.sh [all|labs 下的课程目录名]" >&2
+    exit 2
+  fi
+fi
 for TASK_LAB in "${TASK_LABS[@]}"; do
   mkdir -p "$TASK_ROOT/build/$TASK_LAB"
   cd "$TASK_ROOT/build/$TASK_LAB"

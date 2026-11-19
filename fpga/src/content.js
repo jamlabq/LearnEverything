@@ -1,3 +1,4 @@
+import {practiceLessons} from './content-practice.js';
 import {advancedLessons} from './content-advanced.js';
 export const lessons = [
   {
@@ -63,7 +64,7 @@ export const lessons = [
       {q:'怎样验证这个一位二选一选择器的全部二值输入？',answers:['只检查 SEL=0 的一次结果','检查 SEL、A、B 的全部 8 种组合','必须先购买 FPGA 开发板'],correct:1,explanation:'三个一位二值输入，一共 2³=8 种组合。配套 testbench 已全部检查，XSim 在电脑上就能运行。'}
     ]
   }
-  ,...advancedLessons
+  ,...advancedLessons,...practiceLessons
 ];
 
 export function labInstructions(lesson) {
@@ -71,7 +72,7 @@ export function labInstructions(lesson) {
   <ol class="steps"><li><b>打开项目目录的终端</b>克隆仓库后进入 <code>LearnEverything/fpga</code>。也可以下载实验包，解压后在包含 <code>labs</code> 和 <code>scripts</code> 的文件夹运行。</li><li><b>运行本课实验</b><div class="code-block"><div class="code-heading"><span>终端 · Bash</span><button class="copy-btn" data-copy="bash scripts/run_labs.sh ${lesson.lab}">复制</button></div><pre>bash scripts/run_labs.sh ${lesson.lab}</pre></div>脚本会依次编译、展开电路、运行仿真。第一次运行可能需要等待数十秒。</li><li><b>确认检查结果</b>终端应出现 <code>PASS ${lesson.lab}:</code>。这说明测试台检查的输入组合全部符合预期。<div class="callout"><p>${lesson.labGuide}</p></div></li><li><b>打开波形界面</b><div class="code-block"><div class="code-heading"><span>终端 · 使用本机安装路径</span><button class="copy-btn" data-copy="source /opt/Xilinx/Vivado/2022.2/settings64.sh&#10;cd build/${lesson.lab}&#10;xsim tutorial_sim.wdb -gui">复制</button></div><pre>source /opt/Xilinx/Vivado/2022.2/settings64.sh
 cd build/${lesson.lab}
 xsim tutorial_sim.wdb -gui</pre></div>在 Scopes 中选择 <code>tb</code>，在 Objects 中选中本课输入和输出（时序课还包括 clk、rst），右键 <strong>Add to Wave Window</strong>，再点击 <strong>Zoom Fit</strong> 看完整波形。若已显示信号，可直接缩放查看。</li></ol>
-  <div class="callout"><h4>预期观察</h4><p>${lesson.expected}</p></div><div class="note">${lesson.id<=4?'这里 testbench 里的 <code>#10</code> 是“每组输入保持 10 ns”，不是电路传播延迟。':'时序实验的时钟每 5 ns 翻转一次，完整周期为 10 ns。测试台在上升沿后等待 1 ns 再检查，避开非阻塞赋值更新的仿真调度；这 1 ns 不是寄存器的物理延迟。'}行为仿真不包含布局布线后的真实延迟。</div>
+  <div class="callout"><h4>预期观察</h4><p>${lesson.expected}</p></div><div class="note">${lesson.id<=4||lesson.id===12?'这里 testbench 里的 <code>#10</code> 是“每组输入保持 10 ns”，不是电路传播延迟。':'时序实验的时钟每 5 ns 翻转一次，完整周期为 10 ns。测试台在上升沿后等待 1 ns 再检查，避开非阻塞赋值更新的仿真调度；这 1 ns 不是寄存器的物理延迟。'}行为仿真不包含布局布线后的真实延迟。</div>
   <details><summary>想通过 Vivado 工程界面操作？</summary><p>在项目根目录运行下面的命令。脚本从已安装器件中选择一个作为教学目标，并在终端打印型号；也可通过 PART 环境变量指定器件。这里先进行电脑仿真，不连接真实板卡。第 10 课讲解实际上板所需的板卡核对和约束。</p><div class="code-block"><pre>source /opt/Xilinx/Vivado/2022.2/settings64.sh
 vivado -mode gui -source scripts/create_project.tcl -tclargs ${lesson.lab}</pre></div><p>打开后，在左侧 <strong>Flow Navigator → Simulation → Run Simulation → Run Behavioral Simulation</strong> 运行仿真。在 <strong>RTL Analysis → Open Elaborated Design → Schematic</strong> 查看 RTL 电路；这个视图是展开后的逻辑结构，和综合、布局布线后的物理电路有区别。</p></details>
   <details><summary>波形不对、出现 X，或脚本找不到 Vivado？</summary><p>先确认修改的是 <code>design.v</code>。测试台 <code>tb.sv</code> 负责施加输入并检查输出。确认仿真顶层是 tb，而设计顶层是电路模块。X 表示未知，检查输入是否初始化、输出是否有驱动。脚本日志保存在 <code>build/${lesson.lab}/</code>。</p><p>不同安装路径可以这样指定：</p><div class="code-block"><pre>VIVADO_SETTINGS=/你的路径/settings64.sh bash scripts/run_labs.sh ${lesson.lab}</pre></div></details>

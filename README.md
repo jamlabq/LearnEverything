@@ -12,7 +12,7 @@
 
 | 教程 | 内容 | 源码与实验 |
 | --- | --- | --- |
-| [电路之间 · FPGA 互动入门](https://jamlabq.github.io/LearnEverything/fpga/) | 完整十课，内嵌互动电路、波形、30 道挑战、Vivado/XSim 实验 | [fpga/README.md](fpga/README.md) |
+| [电路之间 · FPGA 互动入门](https://jamlabq.github.io/LearnEverything/fpga/) | 20 课：基础电路到 RAM、FIFO、UART 回显项目，内嵌互动图解、60 道挑战和 Vivado/XSim 自检实验 | [fpga/README.md](fpga/README.md) |
 
 ## 目录与 URL 约定
 

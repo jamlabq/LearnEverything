@@ -7,9 +7,9 @@ import zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-LABS = ('01_parallel', '02_gates', '03_mux', '04_adder', '05_register', '06_counter', '07_pipeline', '08_fsm', '09_pwm', '10_board')
+LABS = tuple(p.name for p in sorted((ROOT / 'labs').glob('[0-9][0-9]_*')) if p.is_dir())
 
-def read_vcd(path):
+def read_vcd(path, max_time=None):
     source = path.read_text()
     match = re.search(r'\$timescale\s+(\d+)\s*(s|ms|us|ns|ps|fs)\s+\$end', source)
     if not match:
@@ -34,6 +34,9 @@ def read_vcd(path):
                 widths[name] = int(fields[2])
         elif line.startswith('#'):
             current_time = round(int(line[1:]) * scale, 6)
+            if max_time is not None and current_time > max_time:
+                end = max_time
+                break
             end = max(end, current_time)
         else:
             code = value = None
@@ -61,7 +64,8 @@ def main():
         for lab in LABS:
             wave = ROOT / 'build' / lab / 'signals.vcd'
             result[lab] = {
-                'wave':read_vcd(wave),
+                'wave':read_vcd(wave, 320 if lab == '12_alu' else None),
+                'excerpt': 'ALU 展示开头 320 ns 的 32 组代表输入；完整自检还遍历全部 524288 种组合。' if lab == '12_alu' else '',
                 'design':(ROOT / 'labs' / lab / 'design.v').read_text(),
                 'testbench':(ROOT / 'labs' / lab / 'tb.sv').read_text(),
                 'tool':'XSim 2022.2',
@@ -75,7 +79,7 @@ def main():
                     archive.write(path, path.relative_to(ROOT))
         for relative in ('README.md', 'index.html', 'assets/style.css', 'assets/favicon.svg'):
             archive.write(ROOT / relative, relative)
-    print('已打包完整十课教程与实验。' if '--package-only' in sys.argv else '已导出十课真实仿真波形、源码和实验包。')
+    print('已打包完整二十课教程与实验。' if '--package-only' in sys.argv else '已导出二十课真实仿真波形、源码和实验包。')
 
 if __name__ == '__main__':
     main()

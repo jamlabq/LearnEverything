@@ -12,7 +12,17 @@ switch -- $lab {
     08_fsm { set top fsm_demo }
     09_pwm { set top pwm_demo }
     10_board { set top board_demo }
-    default { error "实验名称必须是 01_parallel 到 10_board 的课程目录名" }
+    11_variables { set top variables_demo }
+    12_alu { set top alu_demo }
+    13_popcount { set top popcount_demo }
+    14_modules { set top modules_demo }
+    15_debounce { set top debounce_demo }
+    16_shift { set top shift_demo }
+    17_memory { set top memory_demo }
+    18_fifo { set top fifo_demo }
+    19_uart { set top uart_demo }
+    20_project { set top project_demo }
+    default { error "实验名称必须是 01_parallel 到 20_project 的课程目录名" }
 }
 set parts [get_parts -quiet xc7a35tcpg236-1]
 if {[info exists ::env(PART)]} {

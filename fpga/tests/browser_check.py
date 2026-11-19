@@ -74,7 +74,7 @@ try:
             expect(page.locator('#complete-lesson')).to_be_enabled()
             page.locator('#complete-lesson').click()
         page.reload()
-        expect(page.locator('#progress-label')).to_have_text('3 / 10')
+        expect(page.locator('#progress-label')).to_have_text('3 / 20')
         navigate(page,2)
         for kind in ('AND','OR','XOR','NOT'):
             page.locator(f'[data-gate="{kind}"]').click()
@@ -151,7 +151,7 @@ try:
         expect(page.locator('#workflow-explanation')).to_contain_text('I/O 电压')
         page.locator('[data-workflow="4"]').click()
         expect(page.locator('#workflow-explanation')).to_contain_text('Hardware Manager')
-        advanced=page.evaluate('async()=>{const {lessons}=await import("/src/content.js");return lessons.filter(l=>l.id>=4).map(l=>({id:l.id,lab:l.lab,answers:l.quizzes.map(q=>q.correct)}));}')
+        advanced=page.evaluate('async()=>{const {lessons}=await import("/src/content.js");return lessons.filter(l=>l.id>=4&&l.id<=10).map(l=>({id:l.id,lab:l.lab,answers:l.quizzes.map(q=>q.correct)}));}')
         for lesson in advanced:
             n=lesson['id'];navigate(page,n)
             # 播放后切面板，确认没有旧定时器访问新DOM。
@@ -179,7 +179,7 @@ try:
                     page.locator('#wave-window').select_option(view)
                     expect(page.locator('#wave-plot svg')).to_be_visible()
             page.evaluate('window.scrollTo(0,0)');page.screenshot(path=str(OUT/f'{n:02d}-desktop.png'),full_page=True)
-        page.reload();expect(page.locator('#progress-label')).to_have_text('10 / 10')
+        page.reload();expect(page.locator('#progress-label')).to_have_text('10 / 20')
         # 不只检查图片：读取真实 VCD 导出，在每个测试时间段验证输出。
         checks=page.evaluate('''async () => {
             const {labData}=await import('/src/lab-data.js');

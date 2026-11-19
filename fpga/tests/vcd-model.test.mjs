@@ -8,7 +8,7 @@ const inputNames={4:['a','b'],5:['rst','en','d'],6:['rst','en'],7:['rst','a','b'
 const outputNames={4:['sum','low_sum','carry'],5:['q'],6:['count','wrap'],7:['stage_sum','valid_s1','y','valid_out'],8:['state','red','green','yellow'],9:['phase','duty','pwm','auto_duty','up'],10:['count','led']};
 for(const [lab,{wave}] of Object.entries(labData)){
   const id=Number(lab.slice(0,2));
-  if(id<4)continue;
+  if(id<4||id>10)continue;
   test(`${lab}: 网页模型逐事件对照真实 XSim VCD`,()=>{
     let s=initialState(id),ready=id===4,comparisons=0;
     let fast={...initialState(10),half:1};
