@@ -1,0 +1,9 @@
+_site/
+**/build/
+**/__pycache__/
+**/node_modules/
+**/.Xil/
+*.pyc
+*.log
+*.jou
+.DS_Store
