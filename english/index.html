@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f7f3">
+  <meta name="description" content="45 个多主题英语训练单元：10 篇热身、5 篇过渡、25 篇完整长篇与 5 个影视精听课。资源、精听方法、模仿复述与临场交流任务，放在同一本学习手册里。">
+  <title>把英语用起来 · 45 篇实战学习手册 | LearnEverything</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="../" aria-label="LearnEverything 教程首页"><span class="brand-mark" aria-hidden="true">L<span>e</span></span><span>LearnEverything<span class="brand-dot">.</span></span></a>
+      <nav aria-label="页面导航"><a class="nav-active" href="#curriculum">学习路线</a><a href="#method">怎么练</a><a href="#checkpoints">如何验收</a><a href="#resources">资源说明</a></nav>
+      <a class="repo-link" href="https://github.com/jamlabq/LearnEverything" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+  <main id="main">
+    <div class="container">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="little-dot"></span> ENGLISH, IN REAL LIFE <span class="edition">学习手册 / 02</span></div>
+          <h1 id="hero-title">让英语，<br>真正<span class="hero-highlight">用起来。</span></h1>
+          <p class="hero-description">从听懂一句话，到接住一次对话。<br>45 个单元，从生活与科学聊到文化与世界。<br>25 篇 18～25 分钟长原声，让词汇和理解一起长出来。</p>
+          <div class="hero-actions"><button class="button primary" id="hero-start">从第 01 篇开始 <span aria-hidden="true">↗</span></button><a class="text-link" href="#method">先了解训练方法 <span aria-hidden="true">→</span></a></div>
+          <div class="hero-meta"><span><b>45</b> 个训练单元</span><span><b>25</b> 篇完整长听</span><span><b>5</b> 步练习闭环</span></div>
+        </div>
+        <div class="hero-visual" aria-label="本周的小目标：围绕一个新话题自然聊上五分钟">
+          <div class="visual-top"><span class="label-pill">ONE CONVERSATION AT A TIME</span><span class="spark" aria-hidden="true">✳</span></div>
+          <div class="visual-heading"><span>从一个小目标开始</span><h2>换个话题，<br>也能聊上 5 分钟。</h2></div>
+          <div class="conversation">
+            <div class="speech speech-question"><span class="avatar">A</span><p>What have you been watching lately?</p><span class="speech-time">听懂</span></div>
+            <div class="speech speech-answer"><div class="speech-answer-top"><span class="avatar">YOU</span><span>回应，然后把话接下去</span></div><p>A documentary about food.<br>It made me think about our habits.</p><div class="waveform" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><span>YOUR VOICE MATTERS</span></div></div>
+          </div>
+          <div class="visual-footer"><span class="circle-check" aria-hidden="true">✓</span><span>听懂 · 复述 · 临场回应</span><span class="visual-number" aria-hidden="true">Aa</span></div>
+        </div>
+      </section>
+
+      <section class="progress-strip" aria-label="学习进度">
+        <div class="progress-intro"><span class="progress-symbol" aria-hidden="true">↗</span><div><span class="micro-label">MY LEARNING JOURNEY</span><h2>每一步，都算数。</h2></div></div>
+        <div class="progress-track"><div class="progress-caption"><span>已完成 <strong id="completed-count">0</strong> / 45 篇</span><span id="progress-percent">0%</span></div><progress id="overall-progress" max="45" value="0" aria-label="核心单元完成度">0 / 45</progress><p id="progress-hint">每篇完成五步训练后，计入学习进度。</p></div>
+        <button class="button light" id="continue-learning">开始学习 <span aria-hidden="true">→</span></button>
+      </section>
+      <p id="storage-warning" class="storage-warning" role="status" hidden></p>
+      <div id="legacy-notice" class="legacy-notice" hidden><p>课程已重编。检测到旧版 30 篇的学习记录，已原样保留；新版从独立进度开始。</p><button class="button secondary" id="export-legacy">导出旧版笔记</button></div>
+
+      <section class="curriculum section" id="curriculum" aria-labelledby="curriculum-title">
+        <div class="section-heading"><div><div class="eyebrow">01 / YOUR LEARNING PATH</div><h2 id="curriculum-title">从 5 分钟，走进更大的世界。</h2></div><p>先热身，再深入；主题可以按兴趣挑。<br>长篇按原始内容计时，不把循环讲解算作长听。</p></div>
+        <div class="roadmap" id="roadmap"></div>
+        <div class="library-toolbar">
+          <div class="filter-group" id="stage-filters" role="group" aria-label="按学习阶段筛选"><button class="filter-button active" data-stage="all" aria-pressed="true">全部 <span>45</span></button></div>
+          <div class="library-controls"><div class="search-box"><span data-icon="search"></span><label class="sr-only" for="search">搜索标题、话题或来源</label><input id="search" type="search" placeholder="搜索标题、话题、来源…" autocomplete="off"></div><label class="sr-only" for="status-filter">学习状态</label><select id="status-filter"><option value="all">全部进度</option><option value="new">尚未开始</option><option value="started">正在学习</option><option value="done">已完成</option></select></div>
+        </div>
+        <div class="discovery-filters" role="group" aria-label="按资源特点筛选">
+          <label>主题<select id="topic-filter"><option value="all">所有主题</option></select></label>
+          <label>视频平台<select id="platform-filter"><option value="all">所有平台</option><option value="bilibili">有 B 站直达</option><option value="youtube">有 YouTube 直达</option></select></label>
+          <label>英文文本<select id="transcript-filter"><option value="all">所有文本类型</option><option value="reviewed">官方稿 / 人工字幕</option><option value="auto">自动字幕需核对</option></select></label>
+        </div>
+        <div class="collection-note"><b>长篇 25 篇</b><span>18 篇演讲 · 4 期双人播客 · 3 期新闻专题</span><span>影视教学另计 · 每个来源分别标注验证结果</span></div>
+        <div class="results-meta"><p id="results-count" role="status">正在整理学习材料…</p><span>打开课程，查看资源与训练清单 <span aria-hidden="true">↙</span></span></div>
+        <div class="lesson-grid" id="lesson-grid"></div>
+        <div class="empty-state" id="empty-state" hidden><span aria-hidden="true">⌕</span><h3>暂时没有匹配的材料</h3><p>试试“心理”“饮食”“TED”或“Friends”，也可以清除筛选重新浏览。</p><button class="button secondary" id="reset-filters">清除筛选</button></div>
+        <noscript><div class="notice">此页面的课程列表与学习记录需要启用 JavaScript。你也可以查看 <a href="README.md">课程说明</a>，或从 <a href="https://www.bilibili.com/video/BV1UW411i7Lq/">B 站：内向者的力量</a>、<a href="https://www.ted.com/talks/mia_nacamulli_the_benefits_of_a_bilingual_brain">TED：双语大脑的好处</a> 开始。</div></noscript>
+      </section>
+    </div>
+
+    <section class="method-section" id="method" aria-labelledby="method-title">
+      <div class="container">
+        <div class="section-heading"><div><div class="eyebrow">02 / MAKE IT A PRACTICE</div><h2 id="method-title">听懂之后，再往前走一步。</h2></div><p>精听 → 模仿 → 复述 → 交流。<br>让学过的表达，出现在自己的下一句话里。</p></div>
+        <div class="method-layout"><div class="method-steps" id="method-steps"></div><aside class="practice-note"><span class="handwritten">Small steps. Real progress.</span><h3>每天给英语，<br>留一小段认真时间。</h3><div class="time-options" role="group" aria-label="选择每天可用的练习时间"><button data-minutes="20" aria-pressed="false">20 分钟</button><button class="active" data-minutes="40" aria-pressed="true">40 分钟</button><button data-minutes="60" aria-pressed="false">60 分钟</button></div><div id="daily-schedule" aria-live="polite"></div><p class="schedule-note">这是一天的时间分配建议，不要求每天练完一篇。短篇可用 2～4 天，长篇可用 5～8 天。每天 20 分钟时，首次长听可分两天；之后按意义段精练。</p><div class="practice-bottom"><span data-icon="bookmark"></span><p>短对话尽量完整模仿。<br>长材料理解全篇，重点练 <b>3～5 分钟</b>。</p></div></aside></div>
+        <div class="practice-principles"><div><span>01</span><p><b>难句值得停，简单句可以过。</b>只听写卡住的地方，找到没听懂的原因。</p></div><div><span>02</span><p><b>清楚自然，比口音一模一样重要。</b>先把意思、重音和停顿表达清楚。</p></div><div><span>03</span><p><b>每篇带走 5～8 个表达。</b>长篇整理 15～25 个值得理解的词组，主动使用其中 5～8 个；隔 1、3、7 天回忆。</p></div></div>
+      </div>
+    </section>
+
+    <div class="container">
+      <section class="section checkpoints-section" id="checkpoints" aria-labelledby="checkpoints-title">
+        <div class="section-heading"><div><div class="eyebrow">03 / TAKE IT INTO REAL LIFE</div><h2 id="checkpoints-title">会不会用，换个情境试试。</h2></div><p>每完成 5 篇，给自己一次小检查。<br>用陌生材料，检验熟悉表达能否迁移。</p></div>
+        <div class="checkpoints" id="checkpoint-list"></div>
+        <div class="outcome-grid"><article><span data-icon="briefcase"></span><h3>在工作中</h3><p>能汇报进度、解释困难、确认要求。听不清时主动澄清，并继续协商下一步。</p></article><article><span data-icon="globe"></span><h3>听一条新报道</h3><p>能抓住事件、关键数字与因果。知道哪些是事实、观点或预测，允许漏掉少量专有名词。</p></article><article><span data-icon="screen"></span><h3>看一段新剧情</h3><p>能跟住主要情节，理解人物意图。逐渐减少英文字幕依赖，遇到陌生背景再补充查阅。</p></article></div>
+        <p class="outcome-note">45 个单元是第一轮扎实训练，不是“学完就精通”的保证。每周安排真实对话与少量泛听，把最常卡住的情境带回练习。</p>
+      </section>
+
+      <section class="section resources-section" id="resources" aria-labelledby="resources-title">
+        <div class="section-heading"><div><div class="eyebrow">04 / KEEP EXPLORING</div><h2 id="resources-title">资源有出处，学习有后续。</h2></div><button class="button secondary" id="export-progress"><span data-icon="download"></span>导出学习记录</button></div>
+        <div class="resource-notes"><div><span class="source-note-label">关于资源</span><p>每课提供具体视频链接；B 站部分已抽测起播，YouTube 已核对视频页、频道、时长及播放器状态。YouTube 核验使用代理，实际播放仍取决于网络和地区。点开课程可看每条来源的验证说明。</p></div><div><span class="source-note-label">关于进度</span><p>勾选与笔记保存在当前浏览器，刷新后保留，不会自动跨设备同步。建议定期导出 Markdown 记录；清除浏览器数据也会清除进度。</p></div></div>
+        <details class="extras-panel"><summary><span class="extras-summary"><span class="extras-icon" aria-hidden="true">＋</span><span><b>继续看：美剧分集与精听补充</b><small>B 站 · Friends · Modern Family · The Office</small></span></span><span class="extras-toggle">展开资源 <span aria-hidden="true">↗</span></span></summary><div class="extras-intro"><p>这里补充美剧分集、分段跟读和词汇课。先用第 41～45 课学会精听方法，再逐步走向完整剧情。</p><p>合集总时长不等于原声时长，分 P 也不一定对应完整一集。所列为第三方视频，是否持续开放以平台为准；没有逐集承诺播放。</p></div><div id="extra-resources"></div></details>
+        <details class="faq"><summary>链接验证到哪一步？字幕怎么选？<span aria-hidden="true">＋</span></summary><div><p><b>B 站已试播：</b>在浏览器里抽测确认视频开始播放，未完整观看全片。固定中英字幕可在第一次听时遮住字幕；有分 P 的优先选“无字幕”版。</p><p><b>YouTube 页面已核验：</b>核对具体 video ID、标题、频道、时长、英文字幕轨及播放器返回 OK；浏览器试播未成功，因此不标为“已试播”。可点 CC 选择 English，或展开视频简介选择“显示文字记录”。</p><p><b>英文文本：</b>TED 官方逐字稿已读取；BBC Learning English 有人工英文字幕。Easy English 播客和 BBC 新闻本次仅找到自动英文字幕，需核对数字和专名；会员逐字稿不作为免费资源承诺。</p><p>每课另有折叠的 B 站检索入口，它不是已验证的视频。找替代版本时核对讲者、内容与时长。<a href="resource-checks.json" target="_blank" rel="noopener noreferrer">查看本次资源核验记录 ↗</a></p></div></details>
+        <details class="faq"><summary>20 分钟长篇，怎么练到能理解、复述和交流？<span aria-hidden="true">＋</span></summary><div><p>第 1 天听完整段，记主旨与 3～5 个结构点；第 2～4 天按 2～4 分钟的意义段精听，对照文本解决影响理解的难点。理解整篇后，挑 3～5 分钟做逐句模仿。</p><p>第 5～6 天合上文本，用 3～5 分钟复述长篇结构，讲清主张、理由和例子；再做 1～2 分钟简版。请搭档追问、打断或提出反例，练澄清与改述。</p><p>第 7～8 天回听全篇，补齐关键细节，并换一段陌生材料做迁移测试。精学时追求理解每个影响意思的句子；检验交流能力时，重点看能否听出主旨、确认细节、解决误解，不能只靠背熟课文。</p><p>每周至少两次 15～20 分钟真实交流，一次生活主题、一次工作任务；另看一条新新闻或 5 分钟陌生剧情。用新内容检验，避免只对练过的材料熟练。</p></div></details>
+        <details class="faq"><summary>怎样请搭档或 AI 帮我练临场回应？<span aria-hidden="true">＋</span></summary><div><p>可以复制下面的指令，并填入当前课程的情境：</p><blockquote>请和我用英语练习「本课情境」。每次只说一两句，等我回答；不要提前给我答案。根据我的回答临时追问，也可以改变一个条件。若我没听懂，请换一种说法。结束后指出最影响理解的两个问题，并让我再试一次。</blockquote><p>AI 练习用于增加开口次数，仍要和真人交流，适应不同声音、语速与沟通习惯。</p></div></details>
+        <div class="review-note"><span class="little-dot"></span>资料审阅：2026-11-20 · B 站抽测起播 / YouTube 页面与字幕轨核验（经代理） / TED 稿件核验；非全片播放保证。</div>
+      </section>
+      <footer class="site-footer"><a class="brand footer-brand" href="../">LearnEverything<span class="brand-dot">.</span></a><p>Learn a little. Use it a lot.</p><a href="#main">回到顶部 <span aria-hidden="true">↑</span></a></footer>
+    </div>
+  </main>
+
+  <dialog id="lesson-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-toolbar"><span id="dialog-counter"></span><button class="icon-button" id="dialog-close" aria-label="关闭课程详情"><span aria-hidden="true">×</span></button></div>
+    <div class="dialog-content" id="dialog-content"></div>
+    <div class="dialog-navigation"><button class="button secondary" id="previous-lesson">← 上一篇</button><span id="dialog-progress" role="status"></span><button class="button primary" id="next-lesson">下一篇 →</button></div>
+  </dialog>
+  <div id="toast" role="status" class="toast" hidden></div>
+</body>
+</html>

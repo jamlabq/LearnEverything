@@ -5,6 +5,7 @@
 - 教程总入口：**https://jamlabq.github.io/LearnEverything/**
 - FPGA 教程：**https://jamlabq.github.io/LearnEverything/fpga/**
 - FPGA 寄存器实验示例：**https://jamlabq.github.io/LearnEverything/fpga/#lesson-5**
+- 英语实战手册：**https://jamlabq.github.io/LearnEverything/english/**
 
 上面的地址会在 GitHub Pages 启用且部署成功后生效。
 
@@ -13,12 +14,14 @@
 | 教程 | 内容 | 源码与实验 |
 | --- | --- | --- |
 | [电路之间 · FPGA 互动入门](https://jamlabq.github.io/LearnEverything/fpga/) | 面向 C/Java 程序员：四阶段、20 个实验与 2 个配套案例，从电路直觉到 UART 回显；含互动图解、60 道挑战与 Vivado/XSim 自检 | [fpga/README.md](fpga/README.md) |
+| [把英语用起来 · 45 篇实战学习手册](https://jamlabq.github.io/LearnEverything/english/) | 多主题 45 单元，含 25 篇 18～25 分钟完整长篇；B 站 / YouTube 直达、影视分步精听、五步训练与本地记录 | [english/README.md](english/README.md) |
 
 ## 目录与 URL 约定
 
 ```text
 LearnEverything/
 ├── index.html                 # 所有教程的入口
+├── english/                   # 英语资源、训练方法与学习记录
 ├── fpga/                      # FPGA 教程、源码和实验
 │   ├── index.html
 │   ├── src/
@@ -56,7 +59,7 @@ python3 scripts/build_pages.py
 python3 -m http.server 8000 --bind 127.0.0.1 --directory _site
 ```
 
-打开 `http://localhost:8000/` 查看总入口，`http://localhost:8000/fpga/` 查看 FPGA 教程。也可以进入 `fpga/`，用 `bash scripts/start.sh` 单独运行教程。实际 Vivado 实验的命令都在 `fpga/` 或解压后的实验包目录中执行。
+打开 `http://localhost:8000/` 查看总入口，`http://localhost:8000/english/` 查看英语实战手册，`http://localhost:8000/fpga/` 查看 FPGA 教程。也可以进入 `fpga/`，用 `bash scripts/start.sh` 单独运行教程。实际 Vivado 实验的命令都在 `fpga/` 或解压后的实验包目录中执行。
 
 ## 添加下一门教程
 

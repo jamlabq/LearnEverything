@@ -1,0 +1,894 @@
+{
+  "checkedAt": "2026-11-20",
+  "method": "YouTube watch page metadata via user-provided proxy; TED transcript body; Bilibili browser playback samples. Metadata OK does not prove playback. No login cookies or signed media URLs stored.",
+  "checks": [
+    {
+      "url": "https://www.youtube.com/watch?v=JgB6-RWnV9M",
+      "title": "Talking about travel: 🚴🚗🚆 Real Easy English",
+      "channel": "BBC Learning English",
+      "http": 200,
+      "seconds": 302,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=QdE63sYqwd8",
+      "title": "Why are we all so stressed? ⏲️ 6 Minute English",
+      "channel": "BBC Learning English",
+      "http": 200,
+      "seconds": 374,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=fG7dJ6A3l7w",
+      "title": "Food and mood ⏲️ 6 Minute English",
+      "channel": "BBC Learning English",
+      "http": 200,
+      "seconds": 381,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=oHxs1dCUXlI",
+      "title": "Is our health being affected by microplastics? ⏲️ 6 Minute English",
+      "channel": "BBC Learning English",
+      "http": 200,
+      "seconds": 389,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=JnfBXjWm7hc",
+      "title": "Try something new for 30 days | Matt Cutts",
+      "channel": "TED",
+      "http": 200,
+      "seconds": 207,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/matt_cutts_try_something_new_for_30_days",
+      "title": "Try something new for 30 days",
+      "seconds": 190,
+      "transcriptParagraphs": 13,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=dItUGF8GdTw",
+      "title": "5 tips to improve your critical thinking - Samantha Agoos",
+      "channel": "TED-Ed",
+      "http": 200,
+      "seconds": 270,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/samantha_agoos_5_tips_to_improve_your_critical_thinking",
+      "title": "5 tips to improve your critical thinking",
+      "seconds": 255,
+      "transcriptParagraphs": 1,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=MMmOLN5zBLY",
+      "title": "The benefits of a bilingual brain - Mia Nacamulli",
+      "channel": "TED-Ed",
+      "http": 200,
+      "seconds": 304,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/mia_nacamulli_the_benefits_of_a_bilingual_brain",
+      "title": "The benefits of a bilingual brain",
+      "seconds": 288,
+      "transcriptParagraphs": 1,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=f2O6mQkFiiw",
+      "title": "How to practice effectively...for just about anything - Annie Bosler and Don Greene",
+      "channel": "TED-Ed",
+      "http": 200,
+      "seconds": 289,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/annie_bosler_and_don_greene_how_to_practice_effectively_for_just_about_anything",
+      "title": "How to practice effectively...for just about anything",
+      "seconds": 275,
+      "transcriptParagraphs": 1,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=WuyPuH9ojCE",
+      "title": "How stress affects your brain - Madhumita Murgia",
+      "channel": "TED-Ed",
+      "http": 200,
+      "seconds": 256,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/madhumita_murgia_how_stress_affects_your_brain",
+      "title": "How stress affects your brain",
+      "seconds": 240,
+      "transcriptParagraphs": 1,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=dqONk48l5vY",
+      "title": "What would happen if you didn’t sleep? - Claudia Aguirre",
+      "channel": "TED-Ed",
+      "http": 200,
+      "seconds": 275,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/claudia_aguirre_what_would_happen_if_you_didn_t_sleep",
+      "title": "What would happen if you didn't sleep?",
+      "seconds": 259,
+      "transcriptParagraphs": 8,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=eIho2S0ZahI",
+      "title": "How to Speak So That People Want to Listen | Julian Treasure | TED",
+      "channel": "TED",
+      "http": 200,
+      "seconds": 598,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/julian_treasure_how_to_speak_so_that_people_want_to_listen",
+      "title": "How to speak so that people want to listen",
+      "seconds": 584,
+      "transcriptParagraphs": 37,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=R1vskiVDwl4",
+      "title": "Celeste Headlee: 10 ways to have a better conversation | TED",
+      "channel": "TED",
+      "http": 200,
+      "seconds": 704,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/celeste_headlee_10_ways_to_have_a_better_conversation",
+      "title": "10 ways to have a better conversation",
+      "seconds": 680,
+      "transcriptParagraphs": 44,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=8KkKuTCFvzI",
+      "title": "What Makes a Good Life? Lessons from the Longest Study on Happiness | Robert Waldinger | TED",
+      "channel": "TED",
+      "http": 200,
+      "seconds": 767,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/robert_waldinger_what_makes_a_good_life_lessons_from_the_longest_study_on_happiness",
+      "title": "What makes a good life? Lessons from the longest study on happiness",
+      "seconds": 757,
+      "transcriptParagraphs": 25,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=arj7oStGLkU",
+      "title": "Inside the Mind of a Master Procrastinator | Tim Urban | TED",
+      "channel": "TED",
+      "http": 200,
+      "seconds": 844,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/tim_urban_inside_the_mind_of_a_master_procrastinator",
+      "title": "Inside the mind of a master procrastinator",
+      "seconds": 834,
+      "transcriptParagraphs": 72,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=RcGyVTAoXEU",
+      "title": "How to Make Stress Your Friend | Kelly McGonigal | TED",
+      "channel": "TED",
+      "http": 200,
+      "seconds": 869,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/kelly_mcgonigal_how_to_make_stress_your_friend",
+      "title": "How to make stress your friend",
+      "seconds": 855,
+      "transcriptParagraphs": 47,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=c0KYU2j0TM4",
+      "title": "The power of introverts | Susan Cain | TED",
+      "channel": "TED",
+      "http": 200,
+      "seconds": 1144,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/susan_cain_the_power_of_introverts",
+      "title": "The power of introverts",
+      "seconds": 1127,
+      "transcriptParagraphs": 52,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.bilibili.com/video/BV1UW411i7Lq/",
+      "title": "【TED双语】内向者的力量",
+      "channel": "零零落落流泪",
+      "http": 200,
+      "check": "browser playback sample",
+      "playback": {
+        "time": 2.27098,
+        "ready": 4,
+        "paused": false,
+        "duration": 1140.819365
+      },
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=iCvmsMzlF7o",
+      "title": "The Power of Vulnerability | Brené Brown | TED",
+      "channel": "TED",
+      "http": 200,
+      "seconds": 1250,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/brene_brown_the_power_of_vulnerability",
+      "title": "The power of vulnerability",
+      "seconds": 1202,
+      "transcriptParagraphs": 66,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.bilibili.com/video/BV1J7411v71G/",
+      "title": "TED演讲：脆弱的力量！【双语字幕】",
+      "channel": "TED英语演说",
+      "http": 200,
+      "check": "browser playback sample",
+      "playback": {
+        "time": 3.334425,
+        "ready": 4,
+        "paused": false,
+        "duration": 1217
+      },
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=LTO_dZUvbJA",
+      "title": "Why are we happy? Why aren't we happy? | Dan Gilbert",
+      "channel": "TED",
+      "http": 200,
+      "seconds": 1322,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/dan_gilbert_the_surprising_science_of_happiness",
+      "title": "The surprising science of happiness",
+      "seconds": 1251,
+      "transcriptParagraphs": 60,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=VO6XEQIsCoM",
+      "title": "The paradox of choice | Barry Schwartz | TED",
+      "channel": "TED",
+      "http": 200,
+      "seconds": 1223,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/barry_schwartz_the_paradox_of_choice",
+      "title": "The paradox of choice",
+      "seconds": 1163,
+      "transcriptParagraphs": 58,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.bilibili.com/video/BV1WQ4y1N7Dh/",
+      "title": "TED：选择的悖论The paradox of choice，by Barry Schwartz【中/英字幕可选】",
+      "channel": "大明爱吃冰激凌",
+      "http": 200,
+      "check": "browser playback sample",
+      "playback": {
+        "time": 2.968829,
+        "ready": 4,
+        "paused": false,
+        "duration": 1178
+      },
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=86x-u-tz0MA",
+      "title": "Your elusive creative genius | Elizabeth Gilbert",
+      "channel": "TED",
+      "http": 200,
+      "seconds": 1169,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/elizabeth_gilbert_your_elusive_creative_genius",
+      "title": "Your elusive creative genius",
+      "seconds": 1154,
+      "transcriptParagraphs": 46,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=iG9CE55wbtY",
+      "title": "Do schools kill creativity? | Sir Ken Robinson | TED",
+      "channel": "TED",
+      "http": 200,
+      "seconds": 1203,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/ken_robinson_do_schools_kill_creativity",
+      "title": "Do schools kill creativity?",
+      "seconds": 1151,
+      "transcriptParagraphs": 105,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.bilibili.com/video/BV1VV4y1C7FR/",
+      "title": "【TED演讲】学校会扼杀学生的创造力吗（中英字幕）",
+      "channel": "TED超级演讲家",
+      "http": 200,
+      "check": "browser playback sample",
+      "playback": {
+        "time": 3.349356,
+        "ready": 4,
+        "paused": false,
+        "duration": 1149
+      },
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.bilibili.com/video/BV1VV4y1C7FR/?p=2",
+      "title": "【TED演讲】学校会扼杀学生的创造力吗（中英字幕）",
+      "channel": "TED超级演讲家",
+      "http": 200,
+      "check": "part listed in verified video page",
+      "playback": null,
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.bilibili.com/video/BV1VV4y1C7FR/?p=3",
+      "title": "【TED演讲】学校会扼杀学生的创造力吗（中英字幕）",
+      "channel": "TED超级演讲家",
+      "http": 200,
+      "check": "part listed in verified video page",
+      "playback": null,
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=D9Ihs241zeg",
+      "title": "Chimamanda Ngozi Adichie: The Danger of a Single Story | TED",
+      "channel": "TED",
+      "http": 200,
+      "seconds": 1156,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/chimamanda_ngozi_adichie_the_danger_of_a_single_story",
+      "title": "The danger of a single story",
+      "seconds": 1112,
+      "transcriptParagraphs": 58,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.bilibili.com/video/BV1wJ411o71L/",
+      "title": "【TED】单一故事的危险性",
+      "channel": "C语言____",
+      "http": 200,
+      "check": "browser playback sample",
+      "playback": {
+        "time": 2.700386,
+        "ready": 4,
+        "paused": false,
+        "duration": 1129
+      },
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=UyyjU8fzEYU",
+      "title": "My stroke of insight | Jill Bolte Taylor | TED",
+      "channel": "TED",
+      "http": 200,
+      "seconds": 1211,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/jill_bolte_taylor_my_stroke_of_insight",
+      "title": "My stroke of insight",
+      "seconds": 1104,
+      "transcriptParagraphs": 44,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=RUwS1uAdUcI",
+      "title": "Hans Rosling: Debunking third-world myths with the best stats you've ever seen",
+      "channel": "TED",
+      "http": 200,
+      "seconds": 1236,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/hans_rosling_the_best_stats_you_ve_ever_seen",
+      "title": "The best stats you've ever seen",
+      "seconds": 1176,
+      "transcriptParagraphs": 48,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=go_QOzc79Uc",
+      "title": "Teach every child about food | Jamie Oliver",
+      "channel": "TED",
+      "http": 200,
+      "seconds": 1313,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/jamie_oliver_teach_every_child_about_food",
+      "title": "Teach every child about food",
+      "seconds": 1291,
+      "transcriptParagraphs": 69,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=dE1DuBesGYM",
+      "title": "Gaming can make a better world | Jane McGonigal",
+      "channel": "TED",
+      "http": 200,
+      "seconds": 1232,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/jane_mcgonigal_gaming_can_make_a_better_world",
+      "title": "Gaming can make a better world",
+      "seconds": 1186,
+      "transcriptParagraphs": 48,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=y3jYVe1RGaU",
+      "title": "Sugata Mitra: Build a School in the Cloud",
+      "channel": "TED",
+      "http": 200,
+      "seconds": 1352,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/sugata_mitra_build_a_school_in_the_cloud",
+      "title": "Build a School in the Cloud",
+      "seconds": 1334,
+      "transcriptParagraphs": 75,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=t7Xr3AsBEK4",
+      "title": "Connected, but alone? | Sherry Turkle",
+      "channel": "TED",
+      "http": 200,
+      "seconds": 1188,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/sherry_turkle_connected_but_alone",
+      "title": "Connected, but alone?",
+      "seconds": 1171,
+      "transcriptParagraphs": 26,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=Un2yBgIAxYs",
+      "title": "How trees talk to each other | Suzanne Simard",
+      "channel": "TED",
+      "http": 200,
+      "seconds": 1105,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/suzanne_simard_how_trees_talk_to_each_other",
+      "title": "How trees talk to each other",
+      "seconds": 1089,
+      "transcriptParagraphs": 42,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.bilibili.com/video/BV1hs411h7Hm/",
+      "title": "【TED】树木是如何相互交流的？准备好用全新的眼光看待这个自然世界（中英双字）@青知字幕组",
+      "channel": "青知字幕组",
+      "http": 200,
+      "check": "browser playback sample",
+      "playback": {
+        "time": 2.865218,
+        "ready": 4,
+        "paused": false,
+        "duration": 1106
+      },
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=nTFEUsudhfs",
+      "title": "Let's use video to reinvent education | Salman Khan",
+      "channel": "TED",
+      "http": 200,
+      "seconds": 1227,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/sal_khan_let_s_use_video_to_reinvent_education",
+      "title": "Let's use video to reinvent education",
+      "seconds": 1210,
+      "transcriptParagraphs": 65,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=rrkrvAUbU9Y",
+      "title": "The puzzle of motivation | Dan Pink | TED",
+      "channel": "TED",
+      "http": 200,
+      "seconds": 1117,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/dan_pink_the_puzzle_of_motivation",
+      "title": "The puzzle of motivation",
+      "seconds": 1102,
+      "transcriptParagraphs": 62,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=wX78iKhInsc",
+      "title": "How to escape education's death valley | Sir Ken Robinson | TED",
+      "channel": "TED",
+      "http": 200,
+      "seconds": 1151,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/ken_robinson_how_to_escape_education_s_death_valley",
+      "title": "How to escape education's death valley",
+      "seconds": 1137,
+      "transcriptParagraphs": 100,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=IESYMFtLIis",
+      "title": "Why societies collapse | Jared Diamond",
+      "channel": "TED",
+      "http": 200,
+      "seconds": 1188,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.ted.com/talks/jared_diamond_why_do_societies_collapse",
+      "title": "Why do societies collapse?",
+      "seconds": 1081,
+      "transcriptParagraphs": 19,
+      "check": "official transcript body + duration metadata",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=5BMlBhM2pHU",
+      "title": "The Easy English Podcast #63 - British Culture Quiz | Easy English 196",
+      "channel": "Easy English",
+      "http": 200,
+      "seconds": 1381,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "auto",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=hGeQsn2QlJg",
+      "title": "The Easy English Podcast #60 - 5 UNKNOWN British Traditions | Easy English 204",
+      "channel": "Easy English",
+      "http": 200,
+      "seconds": 1213,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "auto",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=gHSR4-9MzJs",
+      "title": "The Easy English Podcast #77 - A German Reviews Traditional British Food l Easy English 212",
+      "channel": "Easy English",
+      "http": 200,
+      "seconds": 1196,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "auto",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=1zQrdBJf4MY",
+      "title": "The Easy English Podcast #78 - 5 Things You Should Never Do in Britain 😳 | Easy English 213",
+      "channel": "Easy English",
+      "http": 200,
+      "seconds": 1112,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "auto",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=gLvkWpnzba8",
+      "title": "Can the world rely on renewable energy? | Future Earth | BBC News",
+      "channel": "BBC News",
+      "http": 200,
+      "seconds": 1469,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "auto",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=x9b9kCRJJLk",
+      "title": "How the food we eat impacts the planet | Future Earth | BBC News",
+      "channel": "BBC News",
+      "http": 200,
+      "seconds": 1467,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "auto",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=596dU6pDEU8",
+      "title": "Could 'degrowth' save the world? | BBC News",
+      "channel": "BBC News",
+      "http": 200,
+      "seconds": 1270,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "auto",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.bilibili.com/video/BV15rxt6uEvx/",
+      "title": "每天4分钟精听《老友记》Day 1｜Boss Man Bing｜盲听→英文→中英→再盲听",
+      "channel": "伊琳的小本本",
+      "http": 200,
+      "check": "browser playback sample",
+      "playback": {
+        "time": 2.971941,
+        "ready": 4,
+        "paused": false,
+        "duration": 285
+      },
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.bilibili.com/video/BV1ueAZe2EDn/",
+      "title": "摩登家庭第一季第一集01 盲听+英文+中英+跟读+盲听，保姆级解析！持之以恒，听力突飞猛进",
+      "channel": "美剧英语每日听",
+      "http": 200,
+      "check": "browser playback sample",
+      "playback": {
+        "time": 3.188926,
+        "ready": 4,
+        "paused": false,
+        "duration": 163
+      },
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=_2zuhPhm_38",
+      "title": "Learn English with TV shows: Friends - Joey Finds Out!",
+      "channel": "FluentU English",
+      "http": 200,
+      "seconds": 1144,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "auto",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=xV-GT84xzE8",
+      "title": "Learn English for the Supermarket with Modern Family",
+      "channel": "Learn English With TV Series",
+      "http": 200,
+      "seconds": 1306,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=4BKHL5P6haw",
+      "title": "Learn English | Learning English with FRIENDS! | English Lesson—FRIENDS Christmas episode | Part 1",
+      "channel": "Rachel's English",
+      "http": 200,
+      "seconds": 1912,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "manual",
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.bilibili.com/video/BV1t84y1974x/",
+      "title": "【Day1】每日英语听力保姆级，盲听+英文+中英词汇解析跟读+盲听，反复听！直到听懂每个单词！坚持下去听力突飞猛进！",
+      "channel": "TED官方英语",
+      "http": 200,
+      "check": "browser playback sample",
+      "playback": {
+        "time": 3.525631,
+        "ready": 4,
+        "paused": false,
+        "duration": 272
+      },
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.bilibili.com/video/BV1CmnnzYEpt/",
+      "title": "【看美剧学英语】老友记第1季全24集 词汇量暴涨6000 双语剧本+学习笔记+视频+音频全套资料",
+      "channel": "快来学英语",
+      "http": 200,
+      "check": "browser playback sample",
+      "playback": {
+        "time": 3.289039,
+        "ready": 4,
+        "paused": false,
+        "duration": 1370
+      },
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.bilibili.com/video/BV1vfFye3E1s/",
+      "title": "摩登家庭 |【第一季】美剧学习，影子跟读，困难单词注释",
+      "channel": "美剧anki",
+      "http": 200,
+      "check": "browser playback sample",
+      "playback": {
+        "time": 3.310205,
+        "ready": 4,
+        "paused": false,
+        "duration": 599.8335
+      },
+      "checkedAt": "2026-11-20"
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=r3K7sfk7dmY",
+      "title": "Learn English with THE OFFICE",
+      "channel": "Learn English With TV Series",
+      "http": 200,
+      "seconds": 1288,
+      "check": "watch page + player metadata; not browser playback",
+      "playerStatus": "OK",
+      "englishCaptions": "auto",
+      "checkedAt": "2026-11-20"
+    }
+  ]
+}
