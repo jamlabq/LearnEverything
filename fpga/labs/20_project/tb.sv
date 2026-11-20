@@ -14,16 +14,24 @@ module tb;
  forever begin
  @(negedge tx);
  if(!rst)begin
- #20;if(tx!==0)$fatal(1,"TX short start bit");
+ fork : receive_or_reset
+ begin : decode_frame
+ #20;if(rst)disable decode_frame;if(tx!==0)$fatal(1,"TX short start bit");
  previous_decoded=0;
- for(previous_bit=0;previous_bit<8;previous_bit=previous_bit+1)begin #40;previous_decoded[previous_bit]=tx;end
- #40;if(tx!==1)$fatal(1,"TX bad stop bit");
+ for(previous_bit=0;previous_bit<8;previous_bit=previous_bit+1)begin #40;if(rst)disable decode_frame;previous_decoded[previous_bit]=tx;end
+ #40;if(rst)disable decode_frame;if(tx!==1)$fatal(1,"TX bad stop bit");
  if(expected_transmitted>=expected_received || previous_decoded!==expected_bytes[expected_transmitted])$fatal(1,"echo order index=%d got=%h expected=%h",expected_transmitted,previous_decoded,expected_bytes[expected_transmitted]);
  expected_transmitted=expected_transmitted+1;
+ end
+ // A synchronous reset aborts this frame; do not decode its idle tail.
+ begin do @(posedge clk); while(!rst); end
+ join_any
+ disable receive_or_reset;
  end
  end
  end
  always @(posedge clk)begin #1;
+ if(rst)begin expected_received=0;expected_transmitted=0;errors=0;end
  if(!rst && rx_valid)begin
  if(rx_data!==expected_bytes[expected_received])$fatal(1,"RX data index=%d got=%h expected=%h",expected_received,rx_data,expected_bytes[expected_received]);
  expected_received=expected_received+1;
@@ -42,11 +50,16 @@ module tb;
  repeat(12)@(negedge clk);
  if(tx_busy!==0 || queued!==0 || tx!==1)$fatal(1,"drained idle state");
  end endtask
+ task reset_run(input integer hold_cycles);begin
+ rst=1;rx=1;repeat(hold_cycles)@(negedge clk);
+ if(tx!==1 || tx_busy!==0 || queued!==0 || overflow!==0 || rx_valid!==0 || framing_error!==0)$fatal(1,"project reset abort");
+ rst=0;repeat(6)@(negedge clk);
+ end endtask
  initial begin
  // Expectations are declared separately from the serial driver and DUT decoder.
  expected_bytes[0]=0;expected_bytes[1]=8'hA5;expected_bytes[2]=255;
  expected_bytes[3]=8'h12;expected_bytes[4]=8'h34;expected_bytes[5]=8'h56;
- expected_bytes[6]=8'h81;expected_bytes[7]=8'h7E;
+ // Each reset starts a fresh reference queue.
  repeat(3)@(negedge clk);rst=0;repeat(4)@(negedge clk);
  rx=0;@(negedge clk);rx=1;repeat(10)@(negedge clk);
  if(expected_received!=0 || errors!=0)$fatal(1,"false start accepted");
@@ -57,9 +70,33 @@ module tb;
  // Abort a partial input frame; reset must flush FIFO and return TX high.
  bit_period(0);bit_period(1);rst=1;rx=1;repeat(3)@(negedge clk);
  if(tx!==1 || tx_busy!==0 || queued!==0 || overflow!==0 || rx_valid!==0 || framing_error!==0)$fatal(1,"project reset abort");
- rst=0;repeat(6)@(negedge clk);send_byte(8'h81,1);send_byte(8'h7E,1);rx=1;drain(8);
- if(expected_received!=8 || errors!=1)$fatal(1,"receive accounting");
- $display("PASS 20_project: physical independent UART echo decoder, continuous frames, false start, bad stop, reset");$finish;
+ rst=0;repeat(6)@(negedge clk);
+ expected_bytes[0]=8'h81;expected_bytes[1]=8'h7E;
+ send_byte(8'h81,1);send_byte(8'h7E,1);rx=1;drain(2);
+ if(expected_received!=2 || errors!=0)$fatal(1,"post-RX-reset accounting");
+ // A one-clock reset between wire samples must still cancel the old frame.
+ reset_run(3);expected_bytes[0]=0;
+ send_byte(0,1);rx=1;
+ wait(tx_busy===1'b1);repeat(8)@(negedge clk);
+ reset_run(1);expected_bytes[0]=8'h96;
+ send_byte(8'h96,1);rx=1;drain(1);
+ // Continuous traffic leaves a received byte queued behind TX.
+ // Reset on a falling edge, before that queued byte can be consumed.
+ reset_run(3);
+ for(i=0;i<12;i=i+1)expected_bytes[i]=i;
+ fork : queued_reset_stimulus
+ begin for(i=0;i<12;i=i+1)send_byte(i,1);rx=1;end
+ begin
+   @(negedge clk);while(queued==0 || !tx_busy)@(negedge clk);
+   if(!tx_busy)$fatal(1,"queued reset must interrupt busy TX");
+ end
+ join_any
+ disable queued_reset_stimulus;
+ if(queued==0)$fatal(1,"queued reset scenario not reached");
+ reset_run(3);expected_bytes[0]=8'h3C;expected_bytes[1]=8'h81;
+ send_byte(8'h3C,1);send_byte(8'h81,1);rx=1;drain(2);
+ if(expected_received!=2 || errors!=0)$fatal(1,"post-queue-reset accounting");
+ $display("PASS 20_project: physical independent UART echo decoder, continuous frames, false start, bad stop, RX/TX/queued reset and recovery");$finish;
  end
  initial begin #100000;$fatal(1,"global serial watchdog");end
 endmodule

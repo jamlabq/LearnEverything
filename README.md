@@ -31,7 +31,7 @@ LearnEverything/
 
 建议课程目录用短小、稳定的小写英文名，多个单词用短横线，例如 `fpga/`、`linux/`、`python/`、`computer-networks/`。后面三项只是命名示例，尚未提供相应课程。
 
-公开 URL 使用 `https://jamlabq.github.io/LearnEverything/<课程名>/`。保留仓库名 `LearnEverything` 的大小写；课程目录后保留 `/`，确保相对资源路径正确。目录名不加日期、序号或版本，展示标题可以自由调整。课程内部的小节可用锚点；FPGA 已支持 `#lesson-1` 到 `#lesson-10`。
+公开 URL 使用 `https://jamlabq.github.io/LearnEverything/<课程名>/`。保留仓库名 `LearnEverything` 的大小写；课程目录后保留 `/`，确保相对资源路径正确。目录名不加日期、序号或版本，展示标题可以自由调整。课程内部的小节可用锚点；FPGA 已支持 `#lesson-1` 到 `#lesson-20`。
 
 这个结构适合在一个仓库持续添加教程。独立子域名或每门教程一个仓库会增加管理工作，目前没有必要。以后若绑定自定义域名，可保留每门教程的路径结构。
 
