@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f7f2">
+  <meta name="description" content="从 Linux 数据包到天线：18 组 Wi-Fi 视频与 21 篇文字选读，配合学习路线、收发流程与概念速查，建立 WLAN 的完整认识。">
+  <title>无线之间 · WLAN 学习导航 | LearnEverything</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <aside class="sidebar" aria-label="学习导航">
+    <a class="brand" href="../">LearnEverything<span>.</span></a>
+    <a class="course-brand" href="#top"><span class="course-mark" aria-hidden="true">W</span><span>无线之间<small>WLAN FIELD GUIDE</small></span></a>
+    <p class="nav-label">这份学习地图</p>
+    <nav class="side-nav" aria-label="页面目录">
+      <a href="#top" class="active"><span>01</span> 开始探索</a>
+      <a href="#route"><span>02</span> 推荐路线</a>
+      <a href="#journey"><span>03</span> 一帧的旅程</a>
+      <a href="#library"><span>04</span> 视频与文字</a>
+      <a href="#concepts"><span>05</span> 概念速查</a>
+    </nav>
+    <div class="sidebar-note"><span class="tiny-label">LEARNING NOTE</span><p>先看见全貌，<br>再理解每一步。</p><span>每次只带着一个问题出发。</span></div>
+    <div class="progress-box"><div><span>我的学习记录</span><strong><span id="done-count">0</span><small> / <span id="total-count">39</span></small></strong></div><progress id="learning-progress" value="0" max="39" aria-label="已标记学习的资料数量"></progress><p>按需选读，无需全部完成。<br>记录保存在当前浏览器。</p></div>
+    <a class="back-link" href="../">← 返回教程目录</a>
+  </aside>
+
+  <div class="page">
+    <header class="topbar"><div>学习手册 <span>/</span> <strong>无线局域网 WLAN</strong></div><a href="#library">探索资料 <span aria-hidden="true">↗</span></a></header>
+    <main id="main">
+      <section id="top" class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="status-dot"></span> A FIELD GUIDE TO WIRELESS</div>
+          <h1 id="page-title">从一个数据包，<br>理解整个 <span>Wi-Fi。</span></h1>
+          <p class="hero-intro">Linux 里的字节，怎样变成天线发出的电波？<br class="desktop-break">用视频建立直觉，用文字理清概念，把软件、基带与射频连成一条线。</p>
+          <div class="hero-actions"><a class="button primary" href="#route">沿着路线开始 <span aria-hidden="true">→</span></a><a class="button secondary" href="#library">直接浏览资料</a></div>
+          <div class="hero-stats"><span><strong id="video-total">18</strong> 组视频</span><span><strong id="article-total">21</strong> 篇文字选读</span><span><strong>5</strong> 个学习阶段</span></div>
+        </div>
+        <div class="signal-art" aria-label="从数据包、数字基带到无线信号的示意">
+          <div class="art-top"><span>THE INVISIBLE, EXPLAINED.</span><span>802.11</span></div>
+          <div class="air-rings" aria-hidden="true"><i></i><i></i><i></i><i></i><b></b></div>
+          <div class="signal-chip"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M13 26a29 29 0 0 1 38 0M20 34a18 18 0 0 1 24 0M27 42a8 8 0 0 1 10 0" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><circle cx="32" cy="49" r="2.5" fill="currentColor"/></svg><strong>WLAN</strong><span>FROM BITS TO WAVES</span></div>
+          <div class="art-bottom"><span><b>01</b> 数据包</span><i aria-hidden="true">→</i><span><b>02</b> 基带</span><i aria-hidden="true">→</i><span><b>03</b> 电波</span></div>
+        </div>
+      </section>
+
+      <div class="editor-note"><span class="note-symbol" aria-hidden="true">↳</span><p><strong>有全貌，也有细节。</strong> 从 802.11a/g 的基础链路入手，再认识 MIMO 与现代 Wi-Fi。文字只选相关章节，每份资料都标出重点和可以停下的位置。</p><a href="#about-sources">整理说明 ↗</a></div>
+
+      <section id="route" class="section" aria-labelledby="route-title">
+        <div class="section-heading"><div><div class="eyebrow">01 / THE LEARNING PATH</div><h2 id="route-title">一条能走通的学习路线</h2><p>每一步看一组视频，搭配几篇选读。能回答检查问题，就可以往下走。</p></div><button class="text-button" id="show-core" type="button">只看核心推荐 <span aria-hidden="true">↗</span></button></div>
+        <div id="route-list" class="route-list"></div>
+      </section>
+
+      <section id="journey" class="section" aria-labelledby="journey-title">
+        <div class="section-heading"><div><div class="eyebrow">02 / FOLLOW A PACKET</div><h2 id="journey-title">同一份数据，六种形态</h2><p>选择一步，看看谁在处理、数据是什么，以及最容易混淆的边界。</p></div><span class="section-tag">以 SoftMAC + OFDM 为例</span></div>
+        <div class="journey-shell"><div id="journey-steps" class="journey-steps" role="group" aria-label="数据收发步骤"></div><div id="journey-detail" class="journey-detail" aria-live="polite"></div></div>
+      </section>
+
+      <section id="library" class="section library" aria-labelledby="library-title">
+        <div class="section-heading"><div><div class="eyebrow">03 / THE RESOURCE LIBRARY</div><h2 id="library-title">视频看见过程，文字留下理解</h2><p>你提供的视频完整收录；文字按问题补齐。收藏感兴趣的资料，按自己的节奏看。</p></div></div>
+        <div class="library-tools">
+          <div class="search-row"><label class="search-box" for="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span class="sr-only">搜索标题、作者或概念</span><input id="search" type="search" placeholder="搜索概念、标题或作者，如 OFDM、mac80211…" autocomplete="off"></label><button id="clear-all" class="text-button" type="button">重置筛选</button></div>
+          <div class="filter-row"><div class="type-filters" role="group" aria-label="资料类型"><button type="button" data-type="all" aria-pressed="true">全部 <span id="all-tab-count">39</span></button><button type="button" data-type="video" aria-pressed="false">视频 <span id="video-tab-count">18</span></button><button type="button" data-type="article" aria-pressed="false">文字 <span id="article-tab-count">21</span></button></div><div class="select-filters"><label><span class="sr-only">主题</span><select id="topic"><option value="all">所有主题</option></select></label><label><span class="sr-only">资源语言</span><select id="language"><option value="all">所有语言</option><option value="zh">中文</option><option value="en">英文</option></select></label><label><span class="sr-only">推荐与学习状态</span><select id="collection"><option value="all">全部资料</option><option value="core">核心推荐</option><option value="saved">我的收藏</option><option value="done">已经学过</option><option value="new">尚未学过</option></select></label></div></div>
+        </div>
+        <div class="results-meta"><p id="result-count" role="status" aria-live="polite">正在整理资料…</p><span>展开「阅读指引」，带着问题看</span></div>
+        <div id="resource-list" class="resource-grid"></div>
+        <div id="empty-state" class="empty-state" hidden><span aria-hidden="true">⌕</span><h3>还没有匹配的资料</h3><p>换一个关键词，或放宽主题、语言与收藏筛选。</p><button id="reset-filters" type="button" class="button primary">显示全部资料</button></div>
+        <noscript><p>资料库的搜索和记录需要 JavaScript。你也可以直接阅读 <a href="SOURCES.md">完整文字资源与视频链接清单</a>。</p></noscript>
+      </section>
+
+      <section id="concepts" class="section" aria-labelledby="concepts-title">
+        <div class="section-heading"><div><div class="eyebrow">04 / KEEP THE CONCEPTS CONNECTED</div><h2 id="concepts-title">遇到术语，回来查一眼</h2><p>先用一句话建立位置感，再跳到资料里深入。</p></div><span class="section-tag">16 组概念</span></div>
+        <div id="concept-list" class="concept-grid"></div>
+      </section>
+
+      <section id="about-sources" class="source-note" aria-labelledby="source-title"><div><div class="eyebrow">A NOTE ON THIS COLLECTION</div><h2 id="source-title">把入口与阅读范围交代清楚</h2></div><div><p>资料整理于 <time datetime="2026-11-20">2026 年 11 月 20 日</time>。文字优先选择官方文档、作者文章与项目说明；PySDR 等长教材只推荐指定章节。阅读时间是学习安排建议，不是视频时长。</p><p>视频保留原清单中的全部条目。能从官方目录或搜索结果确认的提供直达链接；无法确定的明确标为「搜索」。部分原标题、作者归属已在卡片中注明核验情况，字幕与可播放性可能随平台和地区变化。</p><p>中文表示正文或原始讲解语言；英文资源的中文搬运入口不代表已确认字幕。所有外部资料在新标签页打开。</p><a href="SOURCES.md">查看来源与核验记录 ↗</a><span class="source-divider">·</span><a href="README.md">本页使用说明 ↗</a></div></section>
+    </main>
+    <footer><span>LearnEverything <i>/</i> 无线之间</span><span>把看不见的传输，变成说得清的理解。</span><a href="#top">回到顶部 ↑</a></footer>
+  </div>
+  <p id="storage-notice" class="storage-notice" role="status" hidden>浏览器暂时无法保存记录；本次浏览仍可使用收藏和学习标记，刷新后不会保留。</p>
+  <p id="toast" class="toast" role="status" hidden></p>
+</body>
+</html>

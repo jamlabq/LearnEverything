@@ -1,0 +1,343 @@
+[
+  {
+    "url": "https://cdn.sspai.com/2022/10/11/17554cfdf662d5719ada453674012fdb.gif",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.en.md"
+    ],
+    "file": "e953d485105d5c9d.gif",
+    "sha256": "f4b332feedc59fa3196d60f2c272f79fe3d7ffc7a7a429678498ed229979099c",
+    "bytes": 1764287,
+    "replacement_from": "https://s2.loli.net/2024/10/18/LPwz8AKEfxuIMYS.gif",
+    "replacement_note": "Same illustration in the corresponding section of the upstream Chinese translation; original English image host could not be reached.",
+    "original_fetch_error": "HTTPSConnectionPool(host='cdn.sspai.com', port=443): Max retries exceeded with url: /2022/10/11/17554cfdf662d5719ada453674012fdb.gif (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7b58bb792cb0>: Failed to establish a new connection: [Errno -2] Name or service not known')) | HTTPSConnectionPool(host='cdn.sspai.com', port=443): Max retries exceeded with url: /2022/10/11/17554cfdf662d5719ada453674012fdb.gif (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))"
+  },
+  {
+    "url": "https://cdn.sspai.com/2022/10/11/1f7cebd8dd28f664d77cbf0ab228c406.gif",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.en.md"
+    ],
+    "file": "e789fc2e26ed9004.gif",
+    "sha256": "23672ccfe5df2691cdc0b882f768bb6e49dee77bee7b7a1d9c0b8f4a713bfbf7",
+    "bytes": 288620,
+    "replacement_from": "https://s2.loli.net/2024/10/18/ivexghT64HIYPJq.gif",
+    "replacement_note": "Same illustration in the corresponding section of the upstream Chinese translation; original English image host could not be reached.",
+    "original_fetch_error": "HTTPSConnectionPool(host='cdn.sspai.com', port=443): Max retries exceeded with url: /2022/10/11/1f7cebd8dd28f664d77cbf0ab228c406.gif (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7b58bb7dc1c0>: Failed to establish a new connection: [Errno -2] Name or service not known')) | HTTPSConnectionPool(host='cdn.sspai.com', port=443): Max retries exceeded with url: /2022/10/11/1f7cebd8dd28f664d77cbf0ab228c406.gif (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))"
+  },
+  {
+    "url": "https://cdn.sspai.com/2022/10/11/211cffa78f20a9e7286a7419e9e0b878.png",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.en.md"
+    ],
+    "file": "4ca18cfae4ab7e96.webp",
+    "sha256": "6247698ec204551bfae52beb3cd16ed0d1718db35ca622e876a92098fa6cbeea",
+    "bytes": 9116,
+    "replacement_from": "https://s2.loli.net/2024/10/18/S5hcofUlv1x9dX3.png",
+    "replacement_note": "Same illustration in the corresponding section of the upstream Chinese translation; original English image host could not be reached.",
+    "original_fetch_error": "HTTPSConnectionPool(host='cdn.sspai.com', port=443): Max retries exceeded with url: /2022/10/11/211cffa78f20a9e7286a7419e9e0b878.png (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7b58bb7dc9d0>: Failed to establish a new connection: [Errno -2] Name or service not known')) | HTTPSConnectionPool(host='cdn.sspai.com', port=443): Max retries exceeded with url: /2022/10/11/211cffa78f20a9e7286a7419e9e0b878.png (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))"
+  },
+  {
+    "url": "https://cdn.sspai.com/2022/10/11/364c8e6ed263affa84d9eee61338b4af.png",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.en.md"
+    ],
+    "file": "7c2663472e51e120.png",
+    "sha256": "5f6491c00fbbb2a335b1814fa90fe23f572b2cf5ae870752671063c7a994c8d2",
+    "bytes": 38326,
+    "replacement_from": "https://s2.loli.net/2024/10/18/osDmqFvLtPVcidh.png",
+    "replacement_note": "Same illustration in the corresponding section of the upstream Chinese translation; original English image host could not be reached.",
+    "original_fetch_error": "HTTPSConnectionPool(host='cdn.sspai.com', port=443): Max retries exceeded with url: /2022/10/11/364c8e6ed263affa84d9eee61338b4af.png (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7b58bb7de110>: Failed to establish a new connection: [Errno -2] Name or service not known')) | HTTPSConnectionPool(host='cdn.sspai.com', port=443): Max retries exceeded with url: /2022/10/11/364c8e6ed263affa84d9eee61338b4af.png (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))"
+  },
+  {
+    "url": "https://cdn.sspai.com/2022/10/11/3801b1c9b94286566fe677e3b12cc7b0.png",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.en.md"
+    ],
+    "file": "24813fcc473b8218.png",
+    "sha256": "f3654e9461aca1365eafac9ce1ac2851fc4eaee1a1a4ee8f143c5f5325f9e6bf",
+    "bytes": 10741,
+    "replacement_from": "https://s2.loli.net/2024/10/18/JhDUR5tgNdO94mo.png",
+    "replacement_note": "Same illustration in the corresponding section of the upstream Chinese translation; original English image host could not be reached.",
+    "original_fetch_error": "HTTPSConnectionPool(host='cdn.sspai.com', port=443): Max retries exceeded with url: /2022/10/11/3801b1c9b94286566fe677e3b12cc7b0.png (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7b58bb7ddf30>: Failed to establish a new connection: [Errno -2] Name or service not known')) | HTTPSConnectionPool(host='cdn.sspai.com', port=443): Max retries exceeded with url: /2022/10/11/3801b1c9b94286566fe677e3b12cc7b0.png (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))"
+  },
+  {
+    "url": "https://cdn.sspai.com/2022/10/11/51575f65f6f4c6edfa6c5b97fd16d625.png",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.en.md"
+    ],
+    "file": "460743e35a2f087b.png",
+    "sha256": "cf6dba99c39325d0d0236390520a3ec7d00dca877dfdb3357a543d9cc43097b7",
+    "bytes": 24647,
+    "replacement_from": "https://s2.loli.net/2024/10/18/OwrYoqxCjRgFJpZ.png",
+    "replacement_note": "Same illustration in the corresponding section of the upstream Chinese translation; original English image host could not be reached.",
+    "original_fetch_error": "HTTPSConnectionPool(host='cdn.sspai.com', port=443): Max retries exceeded with url: /2022/10/11/51575f65f6f4c6edfa6c5b97fd16d625.png (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7b58bb7dec80>: Failed to establish a new connection: [Errno -2] Name or service not known')) | HTTPSConnectionPool(host='cdn.sspai.com', port=443): Max retries exceeded with url: /2022/10/11/51575f65f6f4c6edfa6c5b97fd16d625.png (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))"
+  },
+  {
+    "url": "https://cdn.sspai.com/2022/10/11/5df6cd9d967f190df35928e781f9185f.png",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.en.md"
+    ],
+    "file": "80f8ce4ad5d3c50f.png",
+    "sha256": "05aa063ecb7a4d7970c68d2ad43fcf07d845ecb27ce5b052d5594913211076f4",
+    "bytes": 66815,
+    "replacement_from": "https://s2.loli.net/2024/10/18/5qAKwzYEgmb821F.png",
+    "replacement_note": "Same illustration in the corresponding section of the upstream Chinese translation; original English image host could not be reached.",
+    "original_fetch_error": "HTTPSConnectionPool(host='cdn.sspai.com', port=443): Max retries exceeded with url: /2022/10/11/5df6cd9d967f190df35928e781f9185f.png (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7b58bb7dff10>: Failed to establish a new connection: [Errno -2] Name or service not known')) | HTTPSConnectionPool(host='cdn.sspai.com', port=443): Max retries exceeded with url: /2022/10/11/5df6cd9d967f190df35928e781f9185f.png (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))"
+  },
+  {
+    "url": "https://cdn.sspai.com/2022/10/11/a7ebb1d3c46702b56bd6d171dfcfc075.png",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.en.md"
+    ],
+    "file": "1ed8df1b20c62eaa.png",
+    "sha256": "752c8974b4e0e59cf448b965af58df86838186f231fb001be3db1fb0593c12fa",
+    "bytes": 33694,
+    "replacement_from": "https://s2.loli.net/2024/10/18/odmKinLV3hybCOa.png",
+    "replacement_note": "Same illustration in the corresponding section of the upstream Chinese translation; original English image host could not be reached.",
+    "original_fetch_error": "HTTPSConnectionPool(host='cdn.sspai.com', port=443): Max retries exceeded with url: /2022/10/11/a7ebb1d3c46702b56bd6d171dfcfc075.png (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7b58bb8316f0>: Failed to establish a new connection: [Errno -2] Name or service not known')) | HTTPSConnectionPool(host='cdn.sspai.com', port=443): Max retries exceeded with url: /2022/10/11/a7ebb1d3c46702b56bd6d171dfcfc075.png (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))"
+  },
+  {
+    "url": "https://cdn.sspai.com/2022/10/11/ad7ebfcb4619f64a41d328b88e0e3a12.png",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.en.md"
+    ],
+    "file": "719f9bca47d513ac.png",
+    "sha256": "6bd60d1ce3200ceebae828999f6a9737ad9d17e3bc50d0b11612c5244dfc49ed",
+    "bytes": 54840,
+    "replacement_from": "https://s2.loli.net/2024/10/18/HU4kO6ofexS2lQM.png",
+    "replacement_note": "Same illustration in the corresponding section of the upstream Chinese translation; original English image host could not be reached.",
+    "original_fetch_error": "HTTPSConnectionPool(host='cdn.sspai.com', port=443): Max retries exceeded with url: /2022/10/11/ad7ebfcb4619f64a41d328b88e0e3a12.png (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7b58bb7dc8e0>: Failed to establish a new connection: [Errno -2] Name or service not known')) | HTTPSConnectionPool(host='cdn.sspai.com', port=443): Max retries exceeded with url: /2022/10/11/ad7ebfcb4619f64a41d328b88e0e3a12.png (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))"
+  },
+  {
+    "url": "https://cdn.sspai.com/2022/10/11/article/827c9a8048c83e504ccb15893702bf09",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.en.md"
+    ],
+    "file": "2acb8744526c7e36.png",
+    "sha256": "68c9abaa241bc3fc76f7a7968a70d966b487280d22bb26863ea9937d0f3c670e",
+    "bytes": 20058,
+    "replacement_from": "https://s2.loli.net/2024/10/18/ZtG9XsoPde5HQBn.png",
+    "replacement_note": "Same illustration in the corresponding section of the upstream Chinese translation; original English image host could not be reached.",
+    "original_fetch_error": "HTTPSConnectionPool(host='cdn.sspai.com', port=443): Max retries exceeded with url: /2022/10/11/article/827c9a8048c83e504ccb15893702bf09 (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7b58bb7ddc30>: Failed to establish a new connection: [Errno -2] Name or service not known')) | HTTPSConnectionPool(host='cdn.sspai.com', port=443): Max retries exceeded with url: /2022/10/11/article/827c9a8048c83e504ccb15893702bf09 (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))"
+  },
+  {
+    "url": "https://cdn.sspai.com/2022/10/11/article/b56994bf9a306830d8b0b8112677d3ec",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.en.md"
+    ],
+    "file": "8f7c3ef020604deb.gif",
+    "sha256": "937f51f072c45a954e676d5302a0c248120007dd0ea4932be9c1976dfed29f32",
+    "bytes": 222032,
+    "replacement_from": "https://s2.loli.net/2024/10/18/dokCZEzrjl7AcI9.gif",
+    "replacement_note": "Same illustration in the corresponding section of the upstream Chinese translation; original English image host could not be reached.",
+    "original_fetch_error": "HTTPSConnectionPool(host='cdn.sspai.com', port=443): Max retries exceeded with url: /2022/10/11/article/b56994bf9a306830d8b0b8112677d3ec (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7b58bb7dfcd0>: Failed to establish a new connection: [Errno -2] Name or service not known')) | HTTPSConnectionPool(host='cdn.sspai.com', port=443): Max retries exceeded with url: /2022/10/11/article/b56994bf9a306830d8b0b8112677d3ec (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))"
+  },
+  {
+    "url": "https://cdn.sspai.com/2022/10/11/bf07c1965a2e5bdf3f00644737789e2e.png",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.en.md"
+    ],
+    "file": "574ce257c2bc6ea4.png",
+    "sha256": "79a47b566074dd4de9e94c8735fe0b7d350a86a938fccca3257cf4cc3a58a9f2",
+    "bytes": 25157,
+    "replacement_from": "https://s2.loli.net/2024/10/18/diZGmFHz8162u4I.png",
+    "replacement_note": "Same illustration in the corresponding section of the upstream Chinese translation; original English image host could not be reached.",
+    "original_fetch_error": "HTTPSConnectionPool(host='cdn.sspai.com', port=443): Max retries exceeded with url: /2022/10/11/bf07c1965a2e5bdf3f00644737789e2e.png (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7b58bb7ddcc0>: Failed to establish a new connection: [Errno -2] Name or service not known')) | HTTPSConnectionPool(host='cdn.sspai.com', port=443): Max retries exceeded with url: /2022/10/11/bf07c1965a2e5bdf3f00644737789e2e.png (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))"
+  },
+  {
+    "url": "https://cdn.sspai.com/2022/10/11/d64a9a2d6406d2d367dcb505ede69c83.png",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.en.md"
+    ],
+    "file": "880d86deb24ee137.png",
+    "sha256": "caf7f38831397437912d245a8cb7c123ab17d51f4fa4dc971ad70eefb123e43a",
+    "bytes": 40249,
+    "replacement_from": "https://s2.loli.net/2024/10/18/7eEWwftYC3KIjik.png",
+    "replacement_note": "Same illustration in the corresponding section of the upstream Chinese translation; original English image host could not be reached.",
+    "original_fetch_error": "HTTPSConnectionPool(host='cdn.sspai.com', port=443): Max retries exceeded with url: /2022/10/11/d64a9a2d6406d2d367dcb505ede69c83.png (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x7b58bb7dece0>: Failed to establish a new connection: [Errno -2] Name or service not known')) | HTTPSConnectionPool(host='cdn.sspai.com', port=443): Max retries exceeded with url: /2022/10/11/d64a9a2d6406d2d367dcb505ede69c83.png (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)')))"
+  },
+  {
+    "url": "https://img.shields.io/github/stars/OI-wiki/OI-wiki.svg?style=social&label=Stars",
+    "used_by": [
+      "oi-wiki/docs/index.md"
+    ],
+    "file": "09e84df1a56a7aad.svg",
+    "sha256": "8e5b807eb09b1612a59123216da905216a469ff077e8f9ed0cc2017a1443ff5c",
+    "bytes": 2784
+  },
+  {
+    "url": "https://img.shields.io/github/watchers/OI-wiki/OI-wiki.svg?style=social&label=Watch",
+    "used_by": [
+      "oi-wiki/docs/index.md"
+    ],
+    "file": "9060ba0cbb070404.svg",
+    "sha256": "9c4e89cea76a8c2dae02ff68fada222be79bb73f3c7c36cdabe8b6a0abdde86a",
+    "bytes": 2782
+  },
+  {
+    "url": "https://math.mit.edu/~gs/linearalgebra/ila5/linearalgebra5_Front.jpg",
+    "used_by": [
+      "cs-self-learning/docs/数学基础/MITLA.en.md",
+      "cs-self-learning/docs/数学基础/MITLA.md"
+    ],
+    "file": "dfedd898130145b0.jpg",
+    "sha256": "3756d44298444c15bd5503a78c3170b8e05babae16186185fa14ca8ad57a254c",
+    "bytes": 228206
+  },
+  {
+    "url": "https://opencollective.com/oi-wiki/contributors.svg?width=890&button=false",
+    "used_by": [
+      "oi-wiki/docs/intro/faq.md"
+    ],
+    "file": "d73a9c2104ff9bb7.svg",
+    "sha256": "3574f1cb1716f02f3f50871f531e41b5c6108581ef44007e0aba35eeaa88577f",
+    "bytes": 2194700
+  },
+  {
+    "url": "https://raw.githubusercontent.com/HardwayLinka/image/master/Drawing 2022-10-20 11.23.41.excalidraw.png",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.en.md",
+      "cs-self-learning/docs/必学工具/workflow.md"
+    ],
+    "file": "ea8a8dbfdb36344c.png",
+    "sha256": "2c5ad018a6bc73a51c5008860b0645b3ddd1993afa64c32b7c6d5bbdfbeb3157",
+    "bytes": 47830
+  },
+  {
+    "url": "https://s2.loli.net/2024/10/18/5qAKwzYEgmb821F.png",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.md"
+    ],
+    "file": "80f8ce4ad5d3c50f.png",
+    "sha256": "05aa063ecb7a4d7970c68d2ad43fcf07d845ecb27ce5b052d5594913211076f4",
+    "bytes": 66815
+  },
+  {
+    "url": "https://s2.loli.net/2024/10/18/7eEWwftYC3KIjik.png",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.md"
+    ],
+    "file": "880d86deb24ee137.png",
+    "sha256": "caf7f38831397437912d245a8cb7c123ab17d51f4fa4dc971ad70eefb123e43a",
+    "bytes": 40249
+  },
+  {
+    "url": "https://s2.loli.net/2024/10/18/HU4kO6ofexS2lQM.png",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.md"
+    ],
+    "file": "719f9bca47d513ac.png",
+    "sha256": "6bd60d1ce3200ceebae828999f6a9737ad9d17e3bc50d0b11612c5244dfc49ed",
+    "bytes": 54840
+  },
+  {
+    "url": "https://s2.loli.net/2024/10/18/JhDUR5tgNdO94mo.png",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.md"
+    ],
+    "file": "24813fcc473b8218.png",
+    "sha256": "f3654e9461aca1365eafac9ce1ac2851fc4eaee1a1a4ee8f143c5f5325f9e6bf",
+    "bytes": 10741
+  },
+  {
+    "url": "https://s2.loli.net/2024/10/18/LPwz8AKEfxuIMYS.gif",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.md"
+    ],
+    "file": "e953d485105d5c9d.gif",
+    "sha256": "f4b332feedc59fa3196d60f2c272f79fe3d7ffc7a7a429678498ed229979099c",
+    "bytes": 1764287
+  },
+  {
+    "url": "https://s2.loli.net/2024/10/18/OwrYoqxCjRgFJpZ.png",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.md"
+    ],
+    "file": "460743e35a2f087b.png",
+    "sha256": "cf6dba99c39325d0d0236390520a3ec7d00dca877dfdb3357a543d9cc43097b7",
+    "bytes": 24647
+  },
+  {
+    "url": "https://s2.loli.net/2024/10/18/S5hcofUlv1x9dX3.png",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.md"
+    ],
+    "file": "4ca18cfae4ab7e96.webp",
+    "sha256": "6247698ec204551bfae52beb3cd16ed0d1718db35ca622e876a92098fa6cbeea",
+    "bytes": 9116
+  },
+  {
+    "url": "https://s2.loli.net/2024/10/18/TycU8l71s9BJSVI.png",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.md"
+    ],
+    "file": "9b0f4886d101f5ad.png",
+    "sha256": "f42733e6299f02af4ab787b5de24c175607909361cfbfe09a0ecdf37b9eb10a0",
+    "bytes": 77118
+  },
+  {
+    "url": "https://s2.loli.net/2024/10/18/ZtG9XsoPde5HQBn.png",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.md"
+    ],
+    "file": "2acb8744526c7e36.png",
+    "sha256": "68c9abaa241bc3fc76f7a7968a70d966b487280d22bb26863ea9937d0f3c670e",
+    "bytes": 20058
+  },
+  {
+    "url": "https://s2.loli.net/2024/10/18/diZGmFHz8162u4I.png",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.md"
+    ],
+    "file": "574ce257c2bc6ea4.png",
+    "sha256": "79a47b566074dd4de9e94c8735fe0b7d350a86a938fccca3257cf4cc3a58a9f2",
+    "bytes": 25157
+  },
+  {
+    "url": "https://s2.loli.net/2024/10/18/dokCZEzrjl7AcI9.gif",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.md"
+    ],
+    "file": "8f7c3ef020604deb.gif",
+    "sha256": "937f51f072c45a954e676d5302a0c248120007dd0ea4932be9c1976dfed29f32",
+    "bytes": 222032
+  },
+  {
+    "url": "https://s2.loli.net/2024/10/18/ivexghT64HIYPJq.gif",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.md"
+    ],
+    "file": "e789fc2e26ed9004.gif",
+    "sha256": "23672ccfe5df2691cdc0b882f768bb6e49dee77bee7b7a1d9c0b8f4a713bfbf7",
+    "bytes": 288620
+  },
+  {
+    "url": "https://s2.loli.net/2024/10/18/odmKinLV3hybCOa.png",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.md"
+    ],
+    "file": "1ed8df1b20c62eaa.png",
+    "sha256": "752c8974b4e0e59cf448b965af58df86838186f231fb001be3db1fb0593c12fa",
+    "bytes": 33694
+  },
+  {
+    "url": "https://s2.loli.net/2024/10/18/osDmqFvLtPVcidh.png",
+    "used_by": [
+      "cs-self-learning/docs/必学工具/workflow.md"
+    ],
+    "file": "7c2663472e51e120.png",
+    "sha256": "5f6491c00fbbb2a335b1814fa90fe23f572b2cf5ae870752671063c7a994c8d2",
+    "bytes": 38326
+  },
+  {
+    "url": "https://cdn.sspai.com/2022/10/11/07e97f372850054958d4961a3787a93f.png",
+    "used_by": [
+      "cs-self-learning/必学工具/workflow.en.md"
+    ],
+    "file": "9b0f4886d101f5ad.png",
+    "sha256": "f42733e6299f02af4ab787b5de24c175607909361cfbfe09a0ecdf37b9eb10a0",
+    "bytes": 77118,
+    "replacement_from": "https://s2.loli.net/2024/10/18/TycU8l71s9BJSVI.png",
+    "replacement_note": "Same illustration in the corresponding section of the upstream Chinese translation; original English image host could not be reached.",
+    "original_fetch_error": "Original Markdown splits this URL across lines."
+  }
+]

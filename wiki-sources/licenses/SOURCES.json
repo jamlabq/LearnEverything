@@ -1,0 +1,12 @@
+{
+  "CC-BY-SA-4.0.txt": {
+    "url": "https://creativecommons.org/licenses/by-sa/4.0/legalcode.txt",
+    "copied_at": "2026-11-20",
+    "sha256": "28a9529c7d0bb4dc51f4bf5c116a3d16ef247a052f7591466768ddf563fd1cf5"
+  },
+  "SATA.txt": {
+    "url": "https://raw.githubusercontent.com/zTrix/sata-license/master/LICENSE.txt",
+    "copied_at": "2026-11-20",
+    "sha256": "2ecee0ac064de20ee1337d97c0f82e548841096a0c7fb0b33548c1af454df9f1"
+  }
+}

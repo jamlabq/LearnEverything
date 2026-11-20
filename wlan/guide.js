@@ -1,0 +1,72 @@
+export const route = [
+  {
+    title: '先建立全景', subtitle: '认识网络里的 Wi-Fi',
+    text: '先知道无线链路负责哪一段，再跟着一次连接认识扫描、关联与密钥握手。',
+    video: 'v-wifi-animation', readings: ['a-overview', 'a-connect'],
+    checkpoint: '能画出 STA → AP → 上游网络，并解释为什么关联成功后还需要密钥与 IP 配置。',
+  },
+  {
+    title: '看懂软件与 MAC', subtitle: '数据如何排队、争用和下发',
+    text: '结合 Linux 栈图与一次空口交换，分清配置、业务数据和需要及时响应的硬件动作。',
+    video: 'v-bootlin', readings: ['a-bootlin', 'a-airtime'],
+    checkpoint: '能分别画出 iw 的控制路径和 socket 的数据路径，说明 ACK 与随机退避的用途。',
+  },
+  {
+    title: '把比特变成波形', subtitle: '编码 → QAM → OFDM',
+    text: '先看视觉视频，再选读星座、编码和循环前缀。卡在频域时再补 FFT 图解。',
+    video: 'v-ofdm-implementation', readings: ['a-qam', 'a-coding', 'a-cp'],
+    checkpoint: '能分清比特、QAM 符号、OFDM 符号与 I/Q 采样，解释编码率和 CP 的代价。',
+  },
+  {
+    title: '跨过射频与信道', subtitle: '发得出去，也收得回来',
+    text: '看 I/Q 与变频，理解多径、时间偏移和频率偏差，再回头认识接收机为何需要同步与均衡。',
+    video: 'v-direct-conversion', readings: ['a-iq', 'a-multipath', 'a-sync'],
+    checkpoint: '能指出 DAC/ADC、上下变频、同步和均衡各自在哪一段，以及它们处理什么问题。',
+  },
+  {
+    title: '用真实系统串起来', subtitle: '从 Linux 一路走到天线',
+    text: '回到 openwifi，在真实架构中逐个定位之前学到的概念；再用抓包理解我们能观察到什么。',
+    video: 'v-openwifi', readings: ['a-openwifi', 'a-capture'],
+    checkpoint: '能对照架构图讲完一帧的收发过程，并区分 Wireshark 帧与 SDR 的原始 I/Q。',
+  },
+];
+
+export const journey = [
+  { name: '应用与网络栈', shape: '字节 → IP 包', owner: 'Linux / CPU',
+    text: '应用通过 socket 发送字节；TCP 或 UDP 与 IP 负责传输和网络层处理。到无线网络设备前，数据还不是射频波形。',
+    detail: '控制路径另行工作：iw / wpa_supplicant / hostapd → nl80211 → cfg80211。普通业务数据不会经过 iw 命令。', resource: 'a-bootlin' },
+  { name: 'MAC 与驱动', shape: '802.11 帧 / 队列', owner: '内核 + 硬件 / 固件',
+    text: 'SoftMAC 路径通常由 mac80211 组织 802.11 帧，再交给驱动和发送队列。竞争信道、ACK 和重试由软件与硬件分工完成。',
+    detail: 'FullMAC 将更多 MAC 状态机交给固件，并通过 cfg80211 接入。SoftMAC 同样常在硬件完成微秒级的退避与 ACK。', resource: 'a-mac80211' },
+  { name: '编码与调制', shape: '比特 → 星座符号', owner: '数字基带',
+    text: '以传统 802.11 OFDM 为例，数据经扰码、纠错编码和交织，再映射为 BPSK、QPSK 或 QAM 星座符号。',
+    detail: '编码添加冗余以抵抗错误；16-QAM 每个星座符号携带 4 个编码比特。编码率决定其中有多少是信息位。不同 PHY 的处理细节不同。', resource: 'a-qam' },
+  { name: 'OFDM 成形', shape: '星座符号 → I/Q', owner: '数字基带',
+    text: '把数据符号和导频放入子载波，IFFT 生成时域复数采样，再添加循环前缀，并按帧格式组织前导码和信令。',
+    detail: '经典 802.11a、20 MHz：64 点 IFFT，48 个数据子载波和 4 个导频；有效符号 3.2 μs，加 0.8 μs CP 后为 4 μs。并非所有 Wi-Fi 代际都用这些参数。', resource: 'a-cp' },
+  { name: '射频与天线', shape: 'I/Q → 电磁波', owner: 'DAC / 混频器 / 放大器',
+    text: '数字采样经 DAC 与模拟滤波，正交上变频到射频载波，再经功放和天线向空间辐射。接收端走相应的下变频与采样过程。',
+    detail: '载波频率、信道带宽和 I/Q 采样率是不同的量。更高阶 QAM 需要更好的信号质量，并不意味着改变载波中心频率。', resource: 'a-iq' },
+  { name: '接收与还原', shape: '采样 → 帧 → 字节', owner: '接收基带 + Linux',
+    text: '接收端进行包检测、增益控制、定时与频偏同步，在合适窗口去 CP、FFT、信道估计与均衡，再解映射、译码并检查帧。',
+    detail: '这些步骤可能交叠或迭代。FFT 输出仍是子载波观测值；不是原始文件。MAC 层的 ACK 也不是应用已经收到数据的确认。', resource: 'a-gr' },
+];
+
+export const concepts = [
+  ['STA / AP / BSS / SSID', '接入与网络', 'STA 是无线站点；AP 提供接入；基础设施 BSS 通常由一个 AP 及其关联站点组成。SSID 是网络名称，BSSID 标识一个 BSS。多个 AP 可以使用同一 SSID。', 'a-overview'],
+  ['扫描 / 认证 / 关联 / 握手', '接入与网络', '扫描用于发现网络；认证与关联建立 802.11 接入关系。以 WPA2-Personal 为例，之后通过四次握手建立流量密钥；DHCP 获取 IP 是更上层的步骤。WPA3-SAE 的认证流程不同。', 'a-connect'],
+  ['CSMA/CA / CCA / NAV', 'MAC', '设备结合物理载波侦听（CCA）与虚拟载波侦听（NAV）判断媒介，等待并随机退避以减少碰撞。Wi-Fi 仍可能发生碰撞，并非发送前就能确保成功。', 'a-airtime'],
+  ['SIFS / DIFS / ACK / 重试', 'MAC', 'SIFS 为某些即时响应留出较短间隔；基本 DCF 使用 DIFS 后的竞争过程。单播常通过 ACK 判断链路层成功，未收到 ACK 可能触发重试。具体数值与策略随 PHY、QoS 和帧类型而变。', 'a-airtime'],
+  ['MSDU / MPDU / PPDU / 聚合', 'MAC 与 PHY', 'MSDU 是交给 MAC 的服务数据单元；MPDU 是包含 MAC 头与校验等的 MAC 帧；PPDU 是 PHY 发到空中的物理层单元。A-MSDU 在一个 MPDU 中合并多个 MSDU，A-MPDU 则合并多个 MPDU。', 'a-11n'],
+  ['nl80211 / cfg80211 / mac80211', 'Linux', 'nl80211 是用户态与内核的无线控制接口；cfg80211 提供无线配置框架；mac80211 为 SoftMAC 驱动提供软件 MAC。普通 socket 的业务数据不通过 nl80211 传输。', 'a-cfg80211'],
+  ['SoftMAC / FullMAC / 固件', 'Linux', '区别是 MAC 功能在主机与设备之间如何划分。SoftMAC 也常使用硬件完成严格的实时操作；FullMAC 将更多连接与 MAC 状态机放到设备固件中。并非“开源”和“闭源”的同义词。', 'a-mac80211'],
+  ['QAM / 星座 / 符号 / MCS', '数字基带', 'QAM 用幅度与相位的组合表示编码比特。M 阶 QAM 每个星座符号承载 log₂(M) 位。MCS 描述调制与编码组合；实际 PHY 速率还取决于带宽、空间流与保护间隔等。', 'a-qam'],
+  ['FEC / 编码率 / 交织', '数字基带', 'FEC 通过冗余帮助接收端纠错；编码率是信息位与编码后位数之比。交织将原本相邻的编码位重新排列，帮助分散某些突发错误。纠错与加密的目标不同。', 'a-coding'],
+  ['OFDM / IFFT / FFT / 子载波', '数字基带', 'OFDM 在许多正交子载波上同时传送符号。IFFT 将子载波上的复数值转为时域采样；FFT 执行相反变换。正交性依赖合适的符号窗口和同步，不代表真实信道下永远没有干扰。', 'a-frequency'],
+  ['CP / 多径 / ISI', '信道与接收', '多径带来不同延迟的信号副本，可能造成符号间干扰（ISI）。CP 复制 OFDM 符号尾部；在 CP 足够长、定时合适等条件下，可保护有效窗口并便于逐子载波均衡。它占用时间，也不能消除多径本身。', 'a-cp'],
+  ['前导码 / 导频 / CFO / 均衡', '信道与接收', '前导码帮助检测包、同步并估计信道；导频辅助持续跟踪。CFO 是收发载波的频率偏差。均衡利用信道估计补偿幅度和相位失真；它不同于纠错译码。', 'a-sync'],
+  ['I/Q / DAC / ADC / 射频', '射频', 'I 与 Q 是正交的两路分量，可以用复数表示基带信号。DAC 把数字变为模拟，ADC 反之；上/下变频连接基带与射频。天线辐射的是物理电磁场，复数是我们的数学表示。', 'a-iq'],
+  ['RSSI / SNR / dBm / EVM', '射频', 'RSSI 表示接收信号强度，SNR 比较信号与噪声功率；dBm 是相对 1 mW 的绝对功率单位。EVM 衡量实际星座点偏离参考点的程度，受噪声、失真和同步误差等影响。', 'a-link-budget'],
+  ['MIMO / 空间流 / OFDMA', '进阶边界', 'MIMO 利用多个天线与空间信道，可用于空间复用、分集或波束成形。OFDMA 将子载波资源分配给不同用户。多根天线不必然有同样多的独立空间流。', 'a-11n'],
+  ['PHY 速率 / 吞吐 / Radiotap', '观察与测量', 'PHY 速率描述物理层数据段速率；有效吞吐还受前导码、争用、ACK、重传、协议头和应用限制影响。Radiotap 附加抓包元数据；普通 Wireshark 抓包并非原始 I/Q。', 'a-capture'],
+];

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block announce %}
+  <a class="mirror-home" href="{{ config.extra.learn_home | url }}">← LearnEverything 学习目录</a>
+  <a class="mirror-about" href="{{ 'mirror-about/' | url }}">本站副本 · 来源与许可</a>
+{% endblock %}
+{% block content %}
+  <aside class="mirror-notice" aria-label="内容来源">
+    <span>{{ config.extra.name }} · 本站阅读</span>
+    <span>复制于 {{ config.extra.imported_at }} · <a href="{{ 'mirror-about/' | url }}">来源与许可</a></span>
+  </aside>
+  {{ super() }}
+  {% if page and page.meta.mirror_original and not page.meta.mirror_original.startswith('mirror-') %}
+  <footer class="mirror-credit">
+    <p>内容来自 <a href="{{ config.extra.upstream }}">{{ config.extra.name }}</a> 的原作者与贡献者。
+    <a href="{{ page.meta.mirror_source }}">查看此页原始版本 ↗</a></p>
+    {% if page.meta.author %}
+    <details><summary>本页原文署名</summary><p>{{ page.meta.author | join(', ') }}</p></details>
+    {% endif %}
+    <p>{{ config.extra.license }}。原文中单独标注的许可继续适用。</p>
+    {% if page.meta.copyright %}<p>原文版权标记：{{ page.meta.copyright | join(', ') }}</p>{% endif %}
+  </footer>
+  {% endif %}
+{% endblock %}

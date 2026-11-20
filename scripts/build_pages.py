@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""构建静态教程合集：自动收集根目录下带 index.html 的课程目录。"""
+"""构建教程合集：收集静态课程，并从本地源文件生成 Wiki 副本。"""
 import shutil
 from pathlib import Path
 
@@ -22,6 +22,8 @@ def main():
         print(f'Published /{folder.name}/')
     if not courses:
         raise SystemExit('没有找到包含 index.html 的教程目录')
+    from build_wikis import main as build_wikis
+    build_wikis(OUTPUT)
     print(f'静态站点已生成：{OUTPUT}')
 
 
