@@ -134,6 +134,9 @@ def build_one(slug, output):
         language_config = next(p['i18n'] for p in original['plugins'] if isinstance(p, dict) and 'i18n' in p)
         plugins.insert(0, {'i18n': language_config})
     nav = original['nav'] + [{'本站副本说明': 'mirror-about.md'}]
+    features = ['navigation.top', 'search.highlight', 'search.suggest', 'content.code.copy']
+    if slug == 'oi-wiki':
+        features += ['navigation.tabs', 'navigation.sections']
     config = {
         'site_name': snapshot['name'],
         'site_url': f'https://jamlabq.github.io/LearnEverything/{slug}/',
@@ -145,7 +148,7 @@ def build_one(slug, output):
         'copyright': f"{snapshot['name']} 原作者及贡献者 · {snapshot['license']}",
         'theme': {'name': 'material', 'language': 'zh', 'font': False,
                   'custom_dir': str(ROOT / 'wiki-theme' / 'overrides'),
-                  'features': ['navigation.tabs', 'navigation.sections', 'navigation.top', 'search.highlight', 'search.suggest', 'content.code.copy'],
+                  'features': features,
                   'palette': [{'scheme': 'default', 'primary': 'teal', 'accent': 'teal', 'toggle': {'icon': 'material/weather-night', 'name': '切换深色模式'}},
                               {'scheme': 'slate', 'primary': 'teal', 'accent': 'teal', 'toggle': {'icon': 'material/weather-sunny', 'name': '切换浅色模式'}}]},
         'nav': nav, 'plugins': plugins,
