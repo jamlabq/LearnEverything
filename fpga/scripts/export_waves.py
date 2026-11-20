@@ -73,7 +73,7 @@ def main():
         target = ROOT / 'src' / 'lab-data.js'
         target.write_text('// 由 scripts/export_waves.py 根据真实 XSim VCD 生成。\nexport const labData = ' + json.dumps(result, ensure_ascii=False, indent=2) + ';\n')
     with zipfile.ZipFile(ROOT / 'assets' / 'fpga-labs.zip', 'w', zipfile.ZIP_DEFLATED) as archive:
-        for folder in ('labs', 'scripts', 'src', 'tests'):
+        for folder in ('labs', 'workshops', 'scripts', 'src', 'tests'):
             for path in sorted((ROOT / folder).rglob('*')):
                 if path.is_file() and '__pycache__' not in path.parts:
                     archive.write(path, path.relative_to(ROOT))

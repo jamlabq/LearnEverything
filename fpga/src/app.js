@@ -1,4 +1,7 @@
 import {lessons, labInstructions} from './content.js';
+import {courseStages,learningOrder,neighbors} from './learning-path.mjs';
+import {startMarkup,lessonGuide,guidedPractice,guidedReading,codeGuide} from './learning-guide.js';
+import {programmerDemoMarkup,mountProgrammerDemo} from './programmer-demos.js';
 import {labData} from './lab-data.js';
 import {escapeHtml,simulatorMarkup,mountSimulator,binaryMarkup,mountBinary,flowDiagram,muxGatesDiagram} from './simulators.js';
 import {manualWave,renderWave,sliceWave} from './waveform.js';
@@ -12,32 +15,35 @@ let progress={};
 try{progress=JSON.parse(localStorage.getItem('fpga-visible-progress')||'{}');if(!progress||Array.isArray(progress)||typeof progress!=='object')progress={};}catch{progress={};}
 const answers={};
 const tabs=[['experiment','动手实验'],['concepts','原理图解'],['code','Verilog 与仿真'],['quiz','课后挑战']];
-const lesson=()=>lessons[currentLesson-1];
+const lesson=()=>lessons.find(l=>l.id===currentLesson);
 function toast(message){const el=document.querySelector('#toast');el.textContent=message;el.hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.hidden=true,2500);}
 function updateProgress(){
   const count=lessons.filter(l=>progress[l.id]).length;
   document.querySelector('#progress-label').textContent=`${count} / ${lessons.length}`;
   document.querySelector('#progress-bar').style.width=`${count/lessons.length*100}%`;
-  document.querySelector('#lesson-nav').innerHTML=lessons.map(l=>`${l.id===1?'<div class="nav-group">基础篇 · 看懂电路</div>':l.id===11?'<div class="nav-group">实践篇 · 搭建系统</div>':''}<a href="#lesson-${l.id}" class="lesson-link ${l.id===currentLesson?'active':''}" ${l.id===currentLesson?'aria-current="page"':''}><span class="lesson-number">${String(l.id).padStart(2,'0')}</span><span>${l.title}</span><span class="check">${progress[l.id]?'✓':l.id===currentLesson?'↗':''}</span></a>`).join('');
+  document.querySelector('#lesson-nav').innerHTML=`<a href="#start" class="lesson-link ${currentLesson===0?'active':''}" ${currentLesson===0?'aria-current="page"':''}>开始前 · 学习路线</a>`+courseStages.map(stage=>`<div class="nav-group">${stage.title}</div>`+stage.ids.map(id=>{
+    const l=lessons.find(item=>item.id===id);
+    return `<a href="#lesson-${l.id}" class="lesson-link ${l.id===currentLesson?'active':''}" ${l.id===currentLesson?'aria-current="page"':''}><span class="lesson-number">${String(learningOrder.indexOf(id)+1).padStart(2,'0')}</span><span>${l.title}</span><span class="check">${progress[l.id]?'✓':l.id===currentLesson?'↗':''}</span></a>`;
+  }).join('')).join('');
 }
 function saveProgress(){try{localStorage.setItem('fpga-visible-progress',JSON.stringify(progress));return true;}catch{toast('浏览器未允许存储，学习记录仅在本次页面中保留。');return false;}}
 function supportMarkup(l){
-  if(l.id>=11)return practiceSupport(l)+practiceExercises(l);
+  if(l.id>=11)return practiceSupport(l)+`<details class="optional-depth"><summary>进阶练习：独立自检与故障定位</summary>${practiceExercises(l)}</details>`;
   if(l.id>=4)return advancedSupport(l);
   if(l.id===1)return `<div class="two-col"><article class="card"><div class="section-label">ONE INPUT, MULTIPLE CIRCUITS</div><h3>观察一下，想一想</h3><p>三个输出共用输入 A、B，但遵守不同的规则。现在先不用记住符号：<strong>试着找到让每盏灯亮起的条件。</strong></p><ul><li>AND：两者都为 1 才亮。</li><li>XOR：两者不同时亮。</li><li>NOT：与 A 相反，不看 B。</li></ul><p>下一课会逐个拆开这些规则。</p></article><article class="card"><div class="section-label">SEQUENTIAL / TEACHING MODEL</div><h3>对比：一次只做一个任务</h3><div id="cpu-rows" class="cpu-rows"></div><p id="cpu-note" class="cpu-note"></p><div class="cpu-controls"><button class="secondary-btn" id="cpu-step">顺序示意：下一步 →</button><button class="text-button" id="cpu-reset">重新开始</button></div></article></div>`;
   return `<div class="two-col"><article class="card"><div class="section-label">${l.id===2?'TRUTH TABLE':'SELECTION RULE'}</div><h3>${l.id===2?'每一种输入，都有一个结果':'选择的是一路数据'}</h3><div id="truth-container"></div></article><article class="card"><div class="section-label">${l.id===2?'A NUMBER IN FOUR BITS':'DATA ≠ CONTROL'}</div><h3>${l.id===2?'四根线，能表示多少？':'控制线本身，不是输出值'}</h3>${l.id===2?`<p>从左到右，位权分别是 8、4、2、1。点亮一位，就把它的权重加进来。</p><div class="binary">${binaryMarkup()}</div>`:'<p>SEL=1 的意思是<strong>选择 B</strong>，并不意味着输出一定是 1。如果 B=0，那么 Y 就是 0。</p><p>选择器只转送数据，不会记住数据。本课没有时钟，输入变化就会影响当前的组合逻辑结果。</p><div class="callout"><code>Y = SEL ? B : A</code><p>SEL=1 选冒号前的 B；SEL=0 选冒号后的 A。</p></div>'}</article></div>`;
 }
 function practiceExercises(l){
- return `<article class="card"><div class="section-label">BUILD IT YOURSELF</div><h3>分三步，把例子变成自己的电路</h3><p>这些练习需要修改源码并补充自检；课后选择题只帮助检查概念。</p><div class="practice-exercises">${l.practice.map((p,i)=>`<section><span class="exercise-number">0${i+1}</span><h4>${p.title}</h4><p>${p.task}</p><details><summary>一点提示</summary><p>${p.hint}</p></details><div class="exercise-acceptance"><b>验收：</b>${p.acceptance}</div></section>`).join('')}</div></article>`;
+ return `<article class="card"><div class="section-label">BUILD IT YOURSELF</div><h3>完成引导练习后，再试这些挑战</h3><p>这些练习进一步要求修改源码并补充自检；第一遍可以先使用配套测试台完成页面上的四步练习。</p><div class="practice-exercises">${l.practice.map((p,i)=>`<section><span class="exercise-number">0${i+1}</span><h4>${p.title}</h4><p>${p.task}</p><details><summary>一点提示</summary><p>${p.hint}</p></details><div class="exercise-acceptance"><b>验收：</b>${p.acceptance}</div></section>`).join('')}</div></article>`;
 }
 function interfaceMarkup(l){
  return l.interface?`<article class="card"><div class="section-label">MODULE INTERFACE</div><h3>先读懂模块的输入和输出</h3><div class="table-scroll"><table class="explain-table"><tbody>${l.interface.map(p=>`<tr><td>${escapeHtml(p.name)}</td><td>${p.meaning}</td></tr>`).join('')}</tbody></table></div></article>`:'';
 }
 function experimentMarkup(l){
-  return `<div class="panel-intro"><h2>${l.experiment}</h2><p>${l.prompt}</p></div>${l.id>=11?practiceMarkup(l):l.id>=4?advancedMarkup(l):simulatorMarkup(l)}
+  return `<div class="panel-intro"><h2>${l.experiment}</h2><p>${l.prompt}</p></div>${programmerDemoMarkup(l.id)}${l.id===5?'<div class="panel-intro"><h3>再看一个寄存器：复位、使能与保持</h3><p>下面可以独立控制 D、RST 和 EN，观察一个寄存器何时更新；下方的主波形对应这个实验。</p></div>':l.id===15?'<div class="panel-intro"><h3>拆开观察：同步、稳定电平与单拍事件</h3><p>下面单独观察按键处理模块的内部状态；主波形对应这个模块。计数器如何使用 PRESS，可回到上方配套案例。</p></div>':''}${l.id>=11?practiceMarkup(l):l.id>=4?advancedMarkup(l):simulatorMarkup(l)}
   <div class="observation"><span class="number">↗</span><div><b>试一试 </b>${l.observation}</div></div>
   <section class="wave-section" aria-label="信号波形"><div class="wave-heading"><h3>看见信号的变化<span class="source-badge" id="wave-badge">INTERACTIVE</span></h3><div class="wave-options" aria-label="波形来源"><button class="wave-choice active" data-wave="manual" aria-pressed="true">手动操作记录</button><button class="wave-choice" data-wave="xsim" aria-pressed="false">XSim 实测波形</button></div></div><div class="wave-window" id="wave-window-wrap" hidden><label>显示片段 <select id="wave-window" aria-label="仿真波形显示片段"><option value="focus">推荐观察片段</option><option value="first">开头一段</option><option value="last">最后一段</option><option value="all">完整记录</option></select></label><span>总线内显示十进制值；X/Z 表示未知/高阻。</span></div><div class="wave-plot" id="wave-plot"></div><p class="wave-note" id="wave-note"></p></section>
-  ${supportMarkup(l)}<div class="summary-strip">${l.takeaway.map(([en,title,desc])=>`<div class="summary-item"><small>${en}</small><h4>${title}</h4><p>${desc}</p></div>`).join('')}</div>`;
+  ${guidedPractice(l)}${supportMarkup(l)}<div class="summary-strip">${l.takeaway.map(([en,title,desc])=>`<div class="summary-item"><small>${en}</small><h4>${title}</h4><p>${desc}</p></div>`).join('')}</div>`;
 }
 function highlightCode(code){
   return code.trimEnd().split('\n').map((line,i)=>{
@@ -48,11 +54,11 @@ function highlightCode(code){
 }
 function codeMarkup(l){
   const data=labData[l.lab];
-  return `<div class="reading">${interfaceMarkup(l)}<article class="card"><div class="section-label">READ THE CIRCUIT / VERILOG</div><h3>从模块接口，读懂电路实现</h3><p>这份源码包含本课电路的完整实现。先看输入和输出，再看中间的连接关系。你可以下载、修改，再交给 Vivado 仿真。</p><div class="code-block"><div class="code-heading"><span>labs/${l.lab}/design.v</span><button id="copy-design">复制源码</button></div><pre><code>${highlightCode(data.design)}</code></pre></div><table class="explain-table"><tbody><tr><td>&#96;timescale 1ns/1ps</td><td>仿真时间单位为 1 ns，精度为 1 ps。这是仿真设置，不是给电路添加时钟或延迟。</td></tr>${l.codeNotes.map(([part,explanation])=>`<tr><td>${escapeHtml(part)}</td><td>${explanation}</td></tr>`).join('')}</tbody></table><details><summary>展开自检测试台 tb.sv</summary><p>测试台只供仿真：它按计划改变输入、等待一段时间，并检查输出。它不会作为本课的电路下载到芯片。</p><div class="code-block"><div class="code-heading"><span>tb.sv · SystemVerilog</span><button id="copy-tb">复制测试台</button></div><pre>${escapeHtml(data.testbench)}</pre></div></details></article>${labInstructions(l)}</div>`;
+  return `<div class="reading">${codeGuide(l)}${interfaceMarkup(l)}<article class="card"><div class="section-label">READ THE CIRCUIT / VERILOG</div><h3>从模块接口，读懂电路实现</h3><p>这份源码包含本课电路的完整实现。先看输入和输出，再看中间的连接关系。你可以下载、修改，再交给 Vivado 仿真。</p><div class="code-block"><div class="code-heading"><span>labs/${l.lab}/design.v</span><button id="copy-design">复制源码</button></div><pre><code>${highlightCode(data.design)}</code></pre></div><table class="explain-table"><tbody><tr><td>&#96;timescale 1ns/1ps</td><td>仿真时间单位为 1 ns，精度为 1 ps。这是仿真设置，不是给电路添加时钟或延迟。</td></tr>${l.codeNotes.map(([part,explanation])=>`<tr><td>${escapeHtml(part)}</td><td>${explanation}</td></tr>`).join('')}</tbody></table><details><summary>展开自检测试台 tb.sv</summary><p>测试台只供仿真：它按计划改变输入、等待一段时间，并检查输出。它不会作为本课的电路下载到芯片。</p><div class="code-block"><div class="code-heading"><span>tb.sv · SystemVerilog</span><button id="copy-tb">复制测试台</button></div><pre>${escapeHtml(data.testbench)}</pre></div></details></article>${labInstructions(l)}</div>`;
 }
 function quizMarkup(l){
   const previous=answers[l.id]||{};
-  return `<div class="panel-intro"><h2>用三个问题，检查你的直觉</h2><p>先预测，再回到电路验证。</p></div><p class="quiz-summary">答错也没关系，每题都可以重新选择。答对全部问题后，就可以完成本课。</p>
+  return `<div class="panel-intro"><h2>用三个问题，检查你的直觉</h2><p>先预测，再回到电路验证。</p></div><p class="quiz-summary">答错也没关系，每题都可以重新选择。答对全部问题后，可以记录本课概念检查；动手能力还要完成引导练习。</p>
   ${l.quizzes.map((q,i)=>`<article class="quiz-card"><div class="quiz-num">QUESTION 0${i+1} / 03</div><h3>${q.q}</h3><div class="answers">${q.answers.map((text,j)=>`<button class="answer ${previous[i]===j?(j===q.correct?'correct':'wrong'):''}" data-question="${i}" data-answer="${j}" aria-pressed="${previous[i]===j}"><span>${String.fromCharCode(65+j)}</span>${text}</button>`).join('')}</div><div id="feedback-${i}" aria-live="polite">${previous[i]!==undefined?feedbackMarkup(q,previous[i]):''}</div></article>`).join('')}
   <div class="completion"><div><h3 style="font-size:15px">${progress[l.id]?'这一课，已经点亮。':'把理解，留在你的学习足迹里。'}</h3><p id="completion-status">${progress[l.id]?'可以随时回来重新实验。':'答对 3 道题后，点击完成本课。'}</p></div><button class="primary-btn" id="complete-lesson" ${canComplete(l)?'':'disabled'}>${progress[l.id]?'已完成 ✓':'完成本课 ✓'}</button></div>`;
 }
@@ -73,7 +79,7 @@ function updateWave(){
   }
   renderWave(document.querySelector('#wave-plot'),data,actual);
   document.querySelector('#wave-badge').textContent=actual?'XSIM 2022.2':'INTERACTIVE';
-  document.querySelector('#wave-note').textContent=(actual?'来源：本机 XSim 2022.2 的真实 VCD；横轴为 ns，固定记录不随网页开关变化。'+(labData[lesson().lab].excerpt||'')+(lesson().waveNote||'每组输入保持 10 ns。第二课的真实记录同时显示全部四种门。'):`横轴是操作序号，不是物理时间。记录最近 ${lesson().id>=11?512:64} 次操作；时序课分别记录上升沿和下降沿，只有上升沿更新状态。多位总线显示十进制值。初始值表示已经复位，不代表芯片上电状态。`)+' 窄屏可在波形区域内左右滑动。';
+  document.querySelector('#wave-note').textContent=(actual?'来源：本机 XSim 2022.2 的真实 VCD；横轴为 ns，固定记录不随网页开关变化。'+(labData[lesson().lab].excerpt||'')+(lesson().waveNote||'每组输入保持 10 ns。逻辑门实验的真实记录同时显示全部四种门。'):`横轴是操作序号，不是物理时间。记录最近 ${lesson().id>=11?512:64} 次操作；时序课分别记录上升沿和下降沿，只有上升沿更新状态。多位总线显示十进制值。初始值表示已经复位，不代表芯片上电状态。`)+' 窄屏可在波形区域内左右滑动。';
 }
 function bindQuiz(l){
   document.querySelectorAll('[data-question]').forEach(button=>button.addEventListener('click',()=>{
@@ -86,7 +92,7 @@ function bindQuiz(l){
     document.querySelector('#completion-status').textContent=`已答对 ${count} / 3 题${count===3?'，可以完成本课。':'，继续试一试。'}`;
     document.querySelector('#complete-lesson').disabled=!canComplete(l);
   }));
-  document.querySelector('#complete-lesson').addEventListener('click',()=>{if(!canComplete(l))return;progress[l.id]=true;saveProgress();updateProgress();const b=document.querySelector('#complete-lesson');b.textContent='已完成 ✓';toast(`第 ${l.id} 课已完成${l.id<lessons.length?'，可以继续下一课。':'，全部课程学完了，试着独立完成改写练习！'}`);});
+  document.querySelector('#complete-lesson').addEventListener('click',()=>{if(!canComplete(l))return;progress[l.id]=true;saveProgress();updateProgress();const b=document.querySelector('#complete-lesson');b.textContent='已完成 ✓';toast(`${l.title}概念测验已完成${neighbors(l.id).next?'，可以继续路线下一课。':'，已到路线终点，继续完成独立设计验收。'}`);});
 }
 async function copy(text){
   try{await navigator.clipboard.writeText(text);toast('已复制，可以粘贴到编辑器或终端。');}
@@ -96,14 +102,19 @@ async function copy(text){
 }
 function render(){
   cleanup();cleanup=()=>{};
-  const l=lesson();
+  if(currentLesson===0){
+    document.title='从 C/Java 到 FPGA · 电路之间';
+    document.querySelector('#crumb').textContent='开始前 · 学习路线';
+    updateProgress();main.innerHTML=startMarkup(lessons);return;
+  }
+  const l=lesson(),route=neighbors(l.id);
   document.title=`${l.title} · 电路之间`;
   document.querySelector('#crumb').textContent=l.title;
   updateProgress();
-  main.innerHTML=`<div class="eyebrow">A HANDS-ON GUIDE TO FPGA / LESSON ${String(l.id).padStart(2,'0')}</div><div class="hero"><div><h1>${l.title}<span style="color:#98a88c;font-weight:400">，</span><br>${l.subtitle}</h1><p class="description">${l.description}</p><div class="lesson-meta"><span>${l.duration}</span><span>零基础友好</span><span>交互 + 真实仿真</span></div></div><span class="hero-tag">动手，让概念发生</span></div>
-  <div class="tabs" role="tablist" aria-label="本课内容">${tabs.map(([id,title],i)=>`<button class="tab ${id===currentTab?'active':''}" role="tab" id="tab-${id}" aria-selected="${id===currentTab}" aria-controls="lesson-panel" tabindex="${id===currentTab?'0':'-1'}" data-tab="${id}"><small>0${i+1}</small>${title}</button>`).join('')}</div>
-  <section id="lesson-panel" role="tabpanel" aria-labelledby="tab-${currentTab}">${currentTab==='experiment'?experimentMarkup(l):currentTab==='concepts'?`<div class="reading">${l.reading}</div>`:currentTab==='code'?codeMarkup(l):quizMarkup(l)}</section>
-  <div class="lesson-footer">${l.id>1?`<a href="#lesson-${l.id-1}">← 上一课：${lessons[l.id-2].title}</a>`:'<span>每次只理解一个小电路。</span>'}${l.id<lessons.length?`<a href="#lesson-${l.id+1}">下一课：${lessons[l.id].title} →</a>`:'<span>完成入门路线，继续独立修改和验证</span>'}</div>`;
+  main.innerHTML=`<div class="eyebrow">C / JAVA → FPGA · 路线 ${learningOrder.indexOf(l.id)+1}/20 · 实验 ${String(l.id).padStart(2,'0')}</div><div class="hero"><div><h1>${l.title}<span style="color:#98a88c;font-weight:400">，</span><br>${l.subtitle}</h1><p class="description">${l.description}</p><div class="lesson-meta"><span>${l.duration}</span><span>有编程经验 · FPGA 从零</span><span>交互 + 真实仿真</span></div></div><span class="hero-tag">动手，让概念发生</span></div>
+  ${lessonGuide(l,lessons)}<div class="tabs" role="tablist" aria-label="本课内容">${tabs.map(([id,title],i)=>`<button class="tab ${id===currentTab?'active':''}" role="tab" id="tab-${id}" aria-selected="${id===currentTab}" aria-controls="lesson-panel" tabindex="${id===currentTab?'0':'-1'}" data-tab="${id}"><small>0${i+1}</small>${title}</button>`).join('')}</div>
+  <section id="lesson-panel" role="tabpanel" aria-labelledby="tab-${currentTab}">${currentTab==='experiment'?experimentMarkup(l):currentTab==='concepts'?`<div class="reading">${guidedReading(l)}</div>`:currentTab==='code'?codeMarkup(l):quizMarkup(l)}</section>
+  <div class="lesson-footer">${route.previous?`<a href="#lesson-${route.previous}">← 上一步：${lessons.find(item=>item.id===route.previous).title}</a>`:'<a href="#start">← 返回学习路线</a>'}${route.next?`<a href="#lesson-${route.next}">下一步：${lessons.find(item=>item.id===route.next).title} →</a>`:'<a href="#start">回顾路线与独立设计目标 →</a>'}</div>`;
   document.querySelectorAll('[data-tab]').forEach(button=>{
     button.addEventListener('click',()=>{currentTab=button.dataset.tab;render();document.querySelector(`[data-tab="${currentTab}"]`).focus({preventScroll:true});});
     button.addEventListener('keydown',event=>{
@@ -115,6 +126,7 @@ function render(){
   if(currentTab==='experiment'){
     samples=[];manualWidths={};waveMode='manual';
     cleanup=(l.id>=11?mountPractice:l.id>=4?mountAdvanced:mountSimulator)(l,(values,widths,refresh=true)=>{manualWidths=widths||{};samples.push(values);if(samples.length>(l.id>=11?512:64))samples.shift();if(refresh)updateWave();},()=>{samples=[];});
+    const stopSimulator=cleanup,stopDemo=mountProgrammerDemo(l.id);cleanup=()=>{stopSimulator();stopDemo();};
     document.querySelector('#wave-window').addEventListener('change',updateWave);
     mountBinary();
     document.querySelectorAll('[data-wave]').forEach(button=>button.addEventListener('click',()=>{
@@ -133,7 +145,7 @@ function render(){
   }else bindQuiz(l);
 }
 function navigate(){
-  const match=location.hash.match(/^#lesson-(\d+)$/);const selected=match?Number(match[1]):1;currentLesson=selected>=1&&selected<=lessons.length?selected:1;currentTab='experiment';
+  const match=location.hash.match(/^#lesson-(\d+)$/);const selected=match?Number(match[1]):0;currentLesson=lessons.some(l=>l.id===selected)?selected:0;currentTab='experiment';
   document.querySelector('#sidebar').classList.remove('open');document.querySelector('#menu-toggle').setAttribute('aria-expanded','false');render();window.scrollTo(0,0);
 }
 window.addEventListener('hashchange',navigate);

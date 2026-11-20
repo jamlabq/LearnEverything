@@ -4,7 +4,7 @@
 
 - 教程总入口：**https://jamlabq.github.io/LearnEverything/**
 - FPGA 教程：**https://jamlabq.github.io/LearnEverything/fpga/**
-- FPGA 第五课示例：**https://jamlabq.github.io/LearnEverything/fpga/#lesson-5**
+- FPGA 寄存器实验示例：**https://jamlabq.github.io/LearnEverything/fpga/#lesson-5**
 
 上面的地址会在 GitHub Pages 启用且部署成功后生效。
 
@@ -12,7 +12,7 @@
 
 | 教程 | 内容 | 源码与实验 |
 | --- | --- | --- |
-| [电路之间 · FPGA 互动入门](https://jamlabq.github.io/LearnEverything/fpga/) | 20 课：基础电路到 RAM、FIFO、UART 回显项目，内嵌互动图解、60 道挑战和 Vivado/XSim 自检实验 | [fpga/README.md](fpga/README.md) |
+| [电路之间 · FPGA 互动入门](https://jamlabq.github.io/LearnEverything/fpga/) | 面向 C/Java 程序员：四阶段、20 个实验与 2 个配套案例，从电路直觉到 UART 回显；含互动图解、60 道挑战与 Vivado/XSim 自检 | [fpga/README.md](fpga/README.md) |
 
 ## 目录与 URL 约定
 
@@ -24,6 +24,7 @@ LearnEverything/
 │   ├── src/
 │   ├── assets/
 │   ├── labs/
+│   ├── workshops/
 │   └── scripts/
 ├── scripts/build_pages.py     # 自动收集带 index.html 的课程目录
 └── .github/workflows/pages.yml
@@ -31,7 +32,7 @@ LearnEverything/
 
 建议课程目录用短小、稳定的小写英文名，多个单词用短横线，例如 `fpga/`、`linux/`、`python/`、`computer-networks/`。后面三项只是命名示例，尚未提供相应课程。
 
-公开 URL 使用 `https://jamlabq.github.io/LearnEverything/<课程名>/`。保留仓库名 `LearnEverything` 的大小写；课程目录后保留 `/`，确保相对资源路径正确。目录名不加日期、序号或版本，展示标题可以自由调整。课程内部的小节可用锚点；FPGA 已支持 `#lesson-1` 到 `#lesson-20`。
+公开 URL 使用 `https://jamlabq.github.io/LearnEverything/<课程名>/`。保留仓库名 `LearnEverything` 的大小写；课程目录后保留 `/`，确保相对资源路径正确。目录名不加日期、序号或版本，展示标题可以自由调整。课程内部的小节可用锚点；FPGA 学习路线为 `#start`，稳定实验锚点为 `#lesson-1` 到 `#lesson-20`。
 
 这个结构适合在一个仓库持续添加教程。独立子域名或每门教程一个仓库会增加管理工作，目前没有必要。以后若绑定自定义域名，可保留每门教程的路径结构。
 
